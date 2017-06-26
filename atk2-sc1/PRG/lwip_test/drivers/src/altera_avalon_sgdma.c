@@ -44,8 +44,9 @@
  * Author: JRK
  */
 
+#include "Os.h" //ATK2 include
 #include "io.h"
-#include "sys/alt_irq.h"
+//#include "sys/alt_irq.h"
 #include "sys/alt_errno.h"
 #include "sys/alt_cache.h"
 
@@ -721,14 +722,17 @@ void alt_avalon_sgdma_construct_descriptor_burst(
  *
  * Interrupt handler for the Scatter-Gather DMA controller.
  */
-#ifdef ALT_ENHANCED_INTERRUPT_API_PRESENT
-static void alt_avalon_sgdma_irq(void *context)
-#else
-static void alt_avalon_sgdma_irq(void *context, alt_u32 id)
-#endif
+//#ifdef ALT_ENHANCED_INTERRUPT_API_PRESENT
+//static void alt_avalon_sgdma_irq(void *context)
+//#else
+//static void alt_avalon_sgdma_irq(void *context, alt_u32 id)
+//#endif
+#include "t_syslog.h"
+ISR(alt_avalon_sgdma_rx_irq)
 {
-  alt_sgdma_dev *dev = (alt_sgdma_dev *) context;
-  alt_irq_context cpu_sr;
+  alt_sgdma_dev *dev = alt_avalon_sgdma_open("/dev/sgdma_rx");
+  //alt_irq_context cpu_sr;
+  //syslog(LOG_INFO, "alt_avalon_sgdma_rx_irq triggered!");
 
   /*
    * Clear the pending interrupt request from the SGDMA controller.
@@ -751,9 +755,45 @@ static void alt_avalon_sgdma_irq(void *context, alt_u32 id)
    * interrupt preemption.
    */
   if(dev->callback) {
-    cpu_sr = alt_irq_disable_all();
+    //cpu_sr = alt_irq_disable_all();
+    SuspendAllInterrupts();
     (dev->callback)(dev->callback_context);
-    alt_irq_enable_all(cpu_sr);
+    //alt_irq_enable_all(cpu_sr);
+    ResumeAllInterrupts();
+  }
+}
+
+ISR(alt_avalon_sgdma_tx_irq)
+{
+  alt_sgdma_dev *dev = alt_avalon_sgdma_open("/dev/sgdma_tx");
+  //alt_irq_context cpu_sr;
+  //syslog(LOG_INFO, "alt_avalon_sgdma_tx_irq triggered!");
+  /*
+   * Clear the pending interrupt request from the SGDMA controller.
+   * Writing 1 to bit-31 of the control register clears the interrupt.
+   * Note: This is explicitly done before calling user interrupt-handling
+   * code rather than after; if user ISR code initiates another SGDMA
+   * transfer which completes quickly, reading the control register after
+   * the callback routine may result in a lost interrupt.
+   */
+  IOWR_ALTERA_AVALON_SGDMA_CONTROL(dev->base, 
+    IORD_ALTERA_AVALON_SGDMA_CONTROL(dev->base) | 0x80000000);
+  
+  /* Dummy read to ensure IRQ is negated before the ISR returns */
+  IORD_ALTERA_AVALON_SGDMA_CONTROL(dev->base);
+  
+  /* 
+   * Other interrupts are explicitly disabled if callbacks
+   * are registered because there is no guarantee that they are 
+   * preemption-safe. This allows the driver to support 
+   * interrupt preemption.
+   */
+  if(dev->callback) {
+    //cpu_sr = alt_irq_disable_all();
+    SuspendAllInterrupts();
+    (dev->callback)(dev->callback_context);
+    //alt_irq_enable_all(cpu_sr);
+    ResumeAllInterrupts();
   }
 }
 
@@ -792,9 +832,9 @@ void alt_avalon_sgdma_init (alt_sgdma_dev *dev, alt_u32 ic_id, alt_u32 irq)
   alt_dev_llist_insert((alt_dev_llist*) dev, &alt_sgdma_list);
 
   /* Install IRQ handler */
-#ifdef ALT_ENHANCED_INTERRUPT_API_PRESENT
-  alt_ic_isr_register(ic_id, irq, alt_avalon_sgdma_irq, dev, 0x0);
-#else
-  alt_irq_register(irq, dev, alt_avalon_sgdma_irq);
-#endif  
+//#ifdef ALT_ENHANCED_INTERRUPT_API_PRESENT
+//  alt_ic_isr_register(ic_id, irq, alt_avalon_sgdma_irq, dev, 0x0);
+//#else
+//  alt_irq_register(irq, dev, alt_avalon_sgdma_irq);
+//#endif  
 }

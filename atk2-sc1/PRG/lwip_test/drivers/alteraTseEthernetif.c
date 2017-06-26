@@ -39,6 +39,8 @@
  *
  */
 
+#include "Os.h"   //ATK2 include
+
 #include "lwip/opt.h"
 
 #include "lwip/def.h"
@@ -51,7 +53,7 @@
 #include "netif/ppp_oe.h"
 #include "alteraTseEthernetif.h"
 
-#include "sys/alt_irq.h"
+//#include "sys/alt_irq.h"
 #include "sys/alt_cache.h"
 
 /* Define those to better describe your network interface. */
@@ -96,7 +98,7 @@ low_level_input(struct netif *netif)
 {
   struct ethernetif *ethernetif = netif->state;
   struct pbuf *p, *nextPkt;
-  u32_t cpu_sr;
+  //u32_t cpu_sr;
 
     if(ethernetif->lwipRxCount == 0)
         return NULL;
@@ -111,9 +113,11 @@ low_level_input(struct netif *netif)
         }
     nextPkt = (void *) alt_remap_uncached(nextPkt,sizeof *nextPkt);
     nextPkt->payload = (void *) alt_remap_uncached(nextPkt->payload, PBUF_POOL_BUFSIZE);
-    cpu_sr = alt_irq_disable_all();
+    //cpu_sr = alt_irq_disable_all();
+    DisableAllInterrupts();
     --ethernetif->lwipRxCount;
-    alt_irq_enable_all(cpu_sr);
+    //alt_irq_enable_all(cpu_sr);
+    EnableAllInterrupts();
     p = ethernetif->lwipRxPbuf[ ethernetif->lwipRxIndex ];
     ethernetif->lwipRxPbuf[ ethernetif->lwipRxIndex ] = nextPkt;
     if(++ethernetif->lwipRxIndex >= LWIP_RX_ETH_BUFFER)

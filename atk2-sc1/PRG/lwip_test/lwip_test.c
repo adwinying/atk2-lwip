@@ -32,8 +32,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "system.h"
-//#include "sys/alt_timestamp.h"
-//#include "sys/alt_alarm.h"
+#include "sys/alt_sys_init.h"
 #include "alt_types.h"
 
 #include "lwip/init.h"
@@ -48,8 +47,7 @@
 #include "drivers/alteraTseEthernetif.h"
 
 /*
- * lwIP startup stuff.
- * TODO: clean this up ie. put this somewhere else?
+ * lwIP #define and constants/variables
  */
 
 #define mSdelay(x) usleep(x*1000)
@@ -67,19 +65,8 @@ struct ip_addr lwipStaticIp;
 //  Define BUILD_HTTPD to 1 to build the httpserver_raw contrib example
 #define BUILD_HTTPD 1
 
-//  Alarm & timer variables - provides a 250mS counter
-//void        lwipProcessTimers(void);
-//static alt_alarm lwipAlarm;
-//static alt_u32   lwipProcessTimerFlag;
-//static alt_u32   lwipTicksPer250mS;
+//  Alarm varibles
 static uint32   lwip250mStimer;
-
-//  Alarm callback function.
-//alt_u32 lwipAlarmCallback(void* context)
-//{
-//    lwipProcessTimerFlag = 1;          //  Set flag to process timers
-//    return lwipTicksPer250mS;
-//}
 
 //  Define netif for lwIP
 struct netif    tseNetif;
@@ -87,13 +74,6 @@ struct netif    tseNetif;
 
 
 
-
-
-/*
- *  変数
- */
-
-#define BUF_SIZE    2048
 
 /*
  *  APIエラーログマクロ
@@ -142,21 +122,10 @@ TASK(USRV_TASK)
     TaskType    tskid;
     GetTaskID(&tskid);
 
-    static uint8_t buffer[BUF_SIZE];
-
     static struct ip_addr   ip_zero = { 0 };
     void httpd_init(void);
 
     syslog(LOG_INFO, "lwIP Running...\n");
-    lwip250mStimer = 0;
-    //lwipProcessTimerFlag = 0;
-    //lwipTicksPer250mS = alt_ticks_per_second() / 4;
-    //if (alt_alarm_start (&lwipAlarm, lwipTicksPer250mS, lwipAlarmCallback, NULL) < 0)
-    //    {
-    //    syslog(LOG_INFO, "System clock is required!\n");
-    //    for(;;);
-    //    }
-    SetRelAlarm(LWIP_ALARM, TICK_FOR_10MS*25, TICK_FOR_10MS*25);
     
     //  Load platform specific MAC address into netif
     tseNetif.hwaddr[0] = 0x00;
@@ -183,6 +152,9 @@ TASK(USRV_TASK)
         syslog(LOG_INFO, '.');
         tse_mac_init(0, tseNetif.state);
         }
+    // Start lwIP callback alarm
+    lwip250mStimer = 0;
+    SetRelAlarm(LWIP_ALARM, TICK_FOR_10MS*25, TICK_FOR_10MS*25);
     syslog(LOG_INFO, "OK\n");
         
 #if USE_DHCP
@@ -191,9 +163,6 @@ TASK(USRV_TASK)
     syslog(LOG_INFO, "Waiting for DHCP IP address...");
     while(! netif_is_up(&tseNetif))
         {
-        //  Process lwIP timer dependent code
-        //if(lwipProcessTimerFlag)
-        //    lwipProcessTimers();
         //  Poll lwIP for incoming packets.
         ethernetif_input(&tseNetif);
         }
@@ -212,9 +181,6 @@ TASK(USRV_TASK)
     //  This is the main loop for lwIP - other processing can be done by calling application functions.
     for(;;)
         {
-        //  Process lwIP timer dependent code
-        //if(lwipProcessTimerFlag)
-        //    lwipProcessTimers();
         //  Poll lwIP for incoming packets.
         ethernetif_input(&tseNetif);
         }
@@ -230,16 +196,9 @@ TASK(USRV_TASK)
 }   /* TASK( MAIN_TASK ) */
 
 
-/*
- * TODO: Put this somewhere else too
- */
-
 //  Run this every 250ms to update lwIP timers
-//void        lwipProcessTimers(void)
 ALARMCALLBACK(LWIP_ALARM_CALLBACK)
 {
-    syslog(LOG_INFO, "LWIP_ALARM_CALLBACK!!");
-    //lwipProcessTimerFlag = 0;
     lwip250mStimer += 250;
     if( (lwip250mStimer % TCP_TMR_INTERVAL) == 0 ) { tcp_tmr(); }
     if( (lwip250mStimer % ARP_TMR_INTERVAL) == 0 ) { etharp_tmr(); }
@@ -431,8 +390,6 @@ extern void target_timer_initialize(void);
 void
 StartupHook(void)
 {
-    ObjectIDType i;
-
     #ifdef TOPPERS_ENABLE_SYS_TIMER
     target_timer_initialize();
     #endif /* TOPPERS_ENABLE_SYS_TIMER */

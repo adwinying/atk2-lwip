@@ -36,6 +36,7 @@
 #define __CC_H__
 
 #include <string.h>
+#include "t_syslog.h"	//ATK2 syslog include
 
 #define LWIP_PROVIDE_ERRNO 1
 
@@ -68,12 +69,12 @@ typedef u32_t sys_prot_t;
 #include <stdlib.h>
 /* Plaform specific diagnostic output */
 #ifndef LWIP_PLATFORM_DIAG
-#define LWIP_PLATFORM_DIAG(x)	do {printf(x);} while(0)
+#define LWIP_PLATFORM_DIAG(x)	do {syslog(LOG_INFO, x);} while(0)
 int printf( const char *fmt, ... );
 #endif
 
 #ifndef LWIP_PLATFORM_ASSERT
-#define LWIP_PLATFORM_ASSERT(x) do {printf("Assertion \"%s\" failed at line %d in %s\n", \
+#define LWIP_PLATFORM_ASSERT(x) do {syslog(LOG_INFO, "Assertion \"%s\" failed at line %d in %s\n", \
                                      x, __LINE__, __FILE__); for(;;) ;} while(0)
 #endif
 

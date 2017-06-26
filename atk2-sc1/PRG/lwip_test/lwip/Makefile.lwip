@@ -88,7 +88,7 @@ LWIP_COBJS += fs.o
 LWIP_COBJS += fsdata.o
 LWIP_COBJS += httpd.o
 LWIP_COBJS += lwip_tse_mac.o
-LWIP_COBJS += tse_my_system.o
+#LWIP_COBJS += tse_my_system.o
 
 
 #Add LWIP_DIR to APPL_DIR
@@ -151,12 +151,12 @@ ALT_COBJS += altera_avalon_tse_system_info.o
 ALT_COBJS += altera_avalon_tse.o
 
 # altera_vic_driver sources 
-ALT_COBJS += altera_vic.o
-ALT_COBJS += altera_vic_irq_init.o
-ALT_COBJS += altera_vic_isr_register.o
-ALT_COBJS += altera_vic_sw_intr.o
-ALT_COBJS += altera_vic_set_level.o
-KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_0_vector_tbl.o
+#ALT_COBJS += altera_vic.o
+#ALT_COBJS += altera_vic_irq_init.o
+#ALT_COBJS += altera_vic_isr_register.o
+#ALT_COBJS += altera_vic_sw_intr.o
+#ALT_COBJS += altera_vic_set_level.o
+#KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_0_vector_tbl.o
 #KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_funnel_non_preemptive.o
 #KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_funnel_non_preemptive_nmio
 #KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_funnel_preemptive.o
@@ -187,8 +187,8 @@ ALT_COBJS += alt_dcache_flush.o
 #ALT_COBJS += alt_dcache_flush_no_writeback.o
 #ALT_COBJS += alt_ecc_fatal_exception.o
 #ALT_COBJS += alt_instruction_exception_entry.o
-ALT_COBJS += alt_irq_register.o
-ALT_COBJS += alt_iic.o
+#ALT_COBJS += alt_irq_register.o
+#ALT_COBJS += alt_iic.o
 #ALT_COBJS += alt_remap_cached.o
 ALT_COBJS += alt_remap_uncached.o
 #ALT_COBJS += alt_uncached_free.o
@@ -233,8 +233,8 @@ ALT_COBJS += alt_io_redirect.o
 #ALT_COBJS += alt_load.o
 #ALT_COBJS += alt_log_printf.o
 #ALT_COBJS += alt_lseek.o
-ALT_COBJS += alt_main.o
-KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) crt0.o
+#ALT_COBJS += alt_main.o
+#KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) crt0.o
 ALT_COBJS += alt_malloc_lock.o
 #ALT_COBJS += alt_open.o
 #ALT_COBJS += alt_printf.o

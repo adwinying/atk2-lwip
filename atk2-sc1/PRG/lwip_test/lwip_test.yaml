@@ -19,6 +19,16 @@ Ecuc:
         OsStartupHook: true
       OsHookStack:
         OsHookStackSize: 0x200
+    alt_avalon_sgdma_rx_irq:
+      DefinitionRef: OsIsr
+      OsIsrInterruptNumber: 12
+      OsIsrInterruptPriority: 3
+      OsIsrCategory: CATEGORY_2
+    alt_avalon_sgdma_tx_irq:
+      DefinitionRef: OsIsr
+      OsIsrInterruptNumber: 13
+      OsIsrInterruptPriority: 3
+      OsIsrCategory: CATEGORY_2
 
 #
 #  タスク
@@ -52,3 +62,4 @@ Ecuc:
       OsAlarmAction:
         OsAlarmCallback:
           OsAlarmCallbackName: LWIP_ALARM_CALLBACK
+

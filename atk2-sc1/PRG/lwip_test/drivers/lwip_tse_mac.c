@@ -41,7 +41,7 @@
 
 #include "altera_avalon_tse.h"
 
-#include "sys/alt_irq.h"
+//#include "sys/alt_irq.h"
 #include "sys/alt_cache.h"
 
 #include "alteraTseEthernetif.h"
@@ -188,9 +188,9 @@ int tse_mac_init(int iface, struct ethernetif *ethernetif)
 
    dat = IORD_ALTERA_TSEMAC_CMD_CONFIG(tse[iface].mi.base);
    if( (dat & 0x03) != 0 ) 
-      printf("WARN: RX/TX not disabled after reset... missing PHY clock? CMD_CONFIG=0x%08x\n", dat);
+      syslog(LOG_INFO, "WARN: RX/TX not disabled after reset... missing PHY clock? CMD_CONFIG=0x%08x\n", dat);
    else
-      printf("OK, x=%d, CMD_CONFIG=0x%08x\n", x, dat);
+      syslog(LOG_INFO, "OK, x=%d, CMD_CONFIG=0x%08x\n", x, dat);
   
    /* Initialize MAC registers */
    IOWR_ALTERA_TSEMAC_FRM_LENGTH(mi_base, PBUF_POOL_BUFSIZE+ETH_PAD_SIZE); 
@@ -285,8 +285,8 @@ int tse_mac_init(int iface, struct ethernetif *ethernetif)
       }
           
    IOWR_ALTERA_TSEMAC_CMD_CONFIG(tse[iface].mi.base, dat);
-   printf("\nMAC post-initialization: CMD_CONFIG=0x%08x\n", 
-    IORD_ALTERA_TSEMAC_CMD_CONFIG(tse[iface].mi.base));
+   syslog(LOG_INFO, "\nMAC post-initialization: CMD_CONFIG=0x%08x\n", 
+       IORD_ALTERA_TSEMAC_CMD_CONFIG(tse[iface].mi.base));
   
    /* Set the MAC address */
      IOWR_ALTERA_TSEMAC_MAC_0(mi_base,
@@ -352,7 +352,7 @@ int tse_sgdma_read_init(lwip_tse_info* tse_ptr)
          0);          // don't write to constant address
 
 
-   printf("[tse_sgdma_read_init] RX descriptor chain desc (%d depth) created\n",0); 
+   syslog(LOG_INFO, "[tse_sgdma_read_init] RX descriptor chain desc (%d depth) created\n",0); 
    
    tse_mac_aRxRead( &tse_ptr->mi, &tse_ptr->desc[ALTERA_TSE_FIRST_RX_SGDMA_DESC_OFST]);
   

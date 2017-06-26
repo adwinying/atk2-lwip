@@ -49,7 +49,7 @@
  */
 
 #include "system.h"
-#include "sys/alt_irq.h"
+//#include "sys/alt_irq.h"
 #include "sys/alt_sys_init.h"
 
 #include <stddef.h>
@@ -58,7 +58,7 @@
  * Device headers
  */
 
-#include "altera_vic_irq.h"
+//#include "altera_vic_irq.h"
 //#include "altera_avalon_cfi_flash.h"
 //#include "altera_avalon_jtag_uart.h"
 //#include "altera_avalon_lcd_16207.h"
