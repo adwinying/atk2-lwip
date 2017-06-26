@@ -1,0 +1,19 @@
+PACKAGE atk2-sc3
+
+MANIFEST
+can_acf.v
+can_defines.v
+can_register_asyn.v
+can_rxmboxacf.v
+README.txt
+can_bsp.v
+can_fifo.v
+can_register_asyn_syn.v
+can_top.v
+can_btl.v
+can_ibo.v
+can_register_syn.v
+can_top_hw.tcl
+can_crc.v
+can_register.v
+can_registers.v

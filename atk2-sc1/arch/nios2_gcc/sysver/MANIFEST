@@ -1,0 +1,5 @@
+PACKAGE atk2-sc3
+
+MANIFEST
+sysver.vhd
+sysver_hw.tcl

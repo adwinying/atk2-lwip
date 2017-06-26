@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Apr 24 15:17:03 2017
+Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Full Version
+Revision Name : DE2_115_NIOS_DEVICE_LED
+Top-level Entity Name : DE2_115_NIOS_DEVICE_LED
+Family : Cyclone IV E
+Total logic elements : 42,300
+    Total combinational functions : 29,138
+    Dedicated logic registers : 23,066
+Total registers : 23078
+Total pins : 487
+Total virtual pins : 0
+Total memory bits : 1,319,083
+Embedded Multiplier 9-bit elements : 4
+Total PLLs : 2

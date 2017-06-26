@@ -1,0 +1,6 @@
+PACKAGE atk2-sc3
+
+MANIFEST
+DE2_115_SOPC.sopc
+de2_115_patch_for_atk2.diff
+std_2s180.sopc

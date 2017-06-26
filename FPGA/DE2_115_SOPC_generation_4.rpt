@@ -1,0 +1,606 @@
+Info: Starting: Create HDL design files for synthesis
+Info: ip-generate --project-directory=C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/ --output-directory=C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/ --file-set=QUARTUS_SYNTH --report-file=html:C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC.html --report-file=sopcinfo:C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC.sopcinfo --report-file=cmp:C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC.cmp --report-file=qip:C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/DE2_115_SOPC.qip --report-file=svd --report-file=regmap:C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/DE2_115_SOPC.regmap --report-file=debuginfo:C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/DE2_115_SOPC.debuginfo --system-info=DEVICE_FAMILY="Cyclone IV E" --system-info=DEVICE=EP4CE115F29C7 --system-info=DEVICE_SPEEDGRADE=7 --component-file=C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC.qsys --language=VERILOG
+Progress: Loading tinet_atk2/DE2_115_SOPC.qsys
+Progress: Reading input file
+Progress: Adding clk_50 [clock_source 13.1]
+Progress: Parameterizing module clk_50
+Progress: Adding sys_clk_timer [altera_avalon_timer 13.1]
+Progress: Parameterizing module sys_clk_timer
+Progress: Adding onchip_memory2 [altera_avalon_onchip_memory2 13.1]
+Progress: Parameterizing module onchip_memory2
+Progress: Adding sdram [altera_avalon_new_sdram_controller 13.1]
+Progress: Parameterizing module sdram
+Progress: Adding key [altera_avalon_pio 13.1]
+Progress: Parameterizing module key
+Progress: Adding sma_in [altera_avalon_pio 13.1]
+Progress: Parameterizing module sma_in
+Progress: Adding sma_out [altera_avalon_pio 13.1]
+Progress: Parameterizing module sma_out
+Progress: Adding sw [altera_avalon_pio 13.1]
+Progress: Parameterizing module sw
+Progress: Adding ledg [altera_avalon_pio 13.1]
+Progress: Parameterizing module ledg
+Progress: Adding ledr [altera_avalon_pio 13.1]
+Progress: Parameterizing module ledr
+Progress: Adding rs232 [altera_avalon_uart 13.1]
+Progress: Parameterizing module rs232
+Progress: Adding i2c_scl [altera_avalon_pio 13.1]
+Progress: Parameterizing module i2c_scl
+Progress: Adding i2c_sda [altera_avalon_pio 13.1]
+Progress: Parameterizing module i2c_sda
+Progress: Adding eep_i2c_scl [altera_avalon_pio 13.1]
+Progress: Parameterizing module eep_i2c_scl
+Progress: Adding eep_i2c_sda [altera_avalon_pio 13.1]
+Progress: Parameterizing module eep_i2c_sda
+Progress: Adding lcd [altera_avalon_lcd_16207 13.1]
+Progress: Parameterizing module lcd
+Progress: Adding ir [altera_avalon_pio 13.1]
+Progress: Parameterizing module ir
+Progress: Adding sram [TERASIC_SRAM 1.0]
+Progress: Parameterizing module sram
+Progress: Adding seg7 [SEG7_IF 1.0]
+Progress: Parameterizing module seg7
+Progress: Adding audio [AUDIO_IF 1.0]
+Progress: Parameterizing module audio
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 13.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding sd_clk [altera_avalon_pio 13.1]
+Progress: Parameterizing module sd_clk
+Progress: Adding sd_cmd [altera_avalon_pio 13.1]
+Progress: Parameterizing module sd_cmd
+Progress: Adding sd_dat [altera_avalon_pio 13.1]
+Progress: Parameterizing module sd_dat
+Progress: Adding sd_wp_n [altera_avalon_pio 13.1]
+Progress: Parameterizing module sd_wp_n
+Progress: Adding pll [altpll 13.1]
+Progress: Parameterizing module pll
+Progress: Adding usb [ISP1362_IF 1.0]
+Progress: Parameterizing module usb
+Progress: Adding sysver_0 [sysver 1.0]
+Progress: Parameterizing module sysver_0
+Progress: Adding timer_0 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_0
+Progress: Adding timer_1 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_1
+Progress: Adding timer_2 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_2
+Progress: Adding timer_3 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_3
+Progress: Adding timer_4 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_4
+Progress: Adding timer_5 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_5
+Progress: Adding timer_6 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_6
+Progress: Adding timer_7 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_7
+Progress: Adding timer_8 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_8
+Progress: Adding timer_9 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_9
+Progress: Adding timer_10 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_10
+Progress: Adding timer_11 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_11
+Progress: Adding timer_12 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_12
+Progress: Adding timer_13 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_13
+Progress: Adding timer_14 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_14
+Progress: Adding timer_15 [altera_avalon_timer 13.1]
+Progress: Parameterizing module timer_15
+Progress: Adding vic_0 [altera_vic 13.1]
+Progress: Parameterizing module vic_0
+Progress: Adding can_top_0 [can_top 2.5]
+Progress: Parameterizing module can_top_0
+Progress: Adding uart_0 [altera_avalon_uart 13.1]
+Progress: Parameterizing module uart_0
+Progress: Adding uart_1 [altera_avalon_uart 13.1]
+Progress: Parameterizing module uart_1
+Progress: Adding clock_crossing_io [altera_avalon_mm_clock_crossing_bridge 13.1]
+Progress: Parameterizing module clock_crossing_io
+Progress: Adding cpu [altera_nios2_qsys 13.1]
+Progress: Parameterizing module cpu
+Progress: Adding sysid [altera_avalon_sysid_qsys 13.1]
+Progress: Parameterizing module sysid
+Progress: Adding tristate_conduit_bridge_flash [altera_tristate_conduit_bridge 13.1]
+Progress: Parameterizing module tristate_conduit_bridge_flash
+Progress: Adding tristate_conduit_pin_sharer_flash [altera_tristate_conduit_pin_sharer 13.1]
+Progress: Parameterizing module tristate_conduit_pin_sharer_flash
+Progress: Adding cfi_flash [altera_generic_tristate_controller 13.1]
+Progress: Parameterizing module cfi_flash
+Progress: Adding clock_bridge_altpll_sys [altera_clock_bridge 13.1]
+Progress: Parameterizing module clock_bridge_altpll_sys
+Progress: Adding clock_bridge_altpll_io [altera_clock_bridge 13.1]
+Progress: Parameterizing module clock_bridge_altpll_io
+Progress: Adding tse [altera_eth_tse 13.1]
+Progress: Parameterizing module tse
+Progress: Adding sgdma_rx [altera_avalon_sgdma 13.1]
+Progress: Parameterizing module sgdma_rx
+Progress: Adding sgdma_tx [altera_avalon_sgdma 13.1]
+Progress: Parameterizing module sgdma_tx
+Progress: Adding descriptor_memory [altera_avalon_onchip_memory2 13.1]
+Progress: Parameterizing module descriptor_memory
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: DE2_115_SOPC.key: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: DE2_115_SOPC.sma_in: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: DE2_115_SOPC.sw: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: DE2_115_SOPC.i2c_sda: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: DE2_115_SOPC.eep_i2c_sda: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: DE2_115_SOPC.ir: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: DE2_115_SOPC.sd_cmd: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: DE2_115_SOPC.sd_dat: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: DE2_115_SOPC.sd_wp_n: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Warning: DE2_115_SOPC.: Verilog HDL Implicit Net warning at can_top.v(617): created implicit net for "rx_inter"
+Warning: DE2_115_SOPC.: Verilog HDL Implicit Net warning at can_top.v(771): created implicit net for "extended_mode_o"
+Info: DE2_115_SOPC.cpu: CPUID control register value is 0. Please manually assign CPUID if creating multiple Nios II system
+Warning: DE2_115_SOPC.cpu: Altera HAL does not support an external interrupt controller and 0 shadow register sets.
+Info: DE2_115_SOPC.sysid: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: DE2_115_SOPC.sysid: Time stamp will be automatically updated when this component is generated.
+Warning: DE2_115_SOPC.cfi_flash: Properties (isFlash,isMemoryDevice,isNonVolatileStorage) have been set on interface uas - in composed mode these are ignored
+Info: DE2_115_SOPC.tse.receive/sgdma_rx.in: The source has a ready latency of 2, while the sink has 0. Avalon Streaming Transform will be executed.
+Info: DE2_115_SOPC: Generating DE2_115_SOPC "DE2_115_SOPC" for QUARTUS_SYNTH
+Info: pipeline_bridge_swap_transform: After transform: 60 modules, 281 connections
+Info: No custom instruction connections, skipping transform 
+Info: merlin_initial_interconnect_transform: After transform: 20 modules, 87 connections
+Info: merlin_translator_transform: After transform: 47 modules, 195 connections
+Info: merlin_domain_transform: After transform: 96 modules, 530 connections
+Info: merlin_router_transform: After transform: 123 modules, 638 connections
+Info: merlin_traffic_limiter_transform: After transform: 124 modules, 643 connections
+Info: merlin_burst_transform: After transform: 129 modules, 663 connections
+Info: merlin_network_to_switch_transform: After transform: 182 modules, 804 connections
+Info: merlin_width_transform: After transform: 186 modules, 820 connections
+Info: Inserting clock-crossing logic between cmd_xbar_demux_001.src11 and cmd_xbar_mux_011.sink0
+Info: Inserting clock-crossing logic between rsp_xbar_demux_011.src0 and rsp_xbar_mux_001.sink11
+Info: com_altera_sopcmodel_transforms_avalon_ClockCrossingTransform: After transform: 188 modules, 834 connections
+Info: limiter_update_transform: After transform: 188 modules, 835 connections
+Info: merlin_clock_and_reset_bridge_transform: After transform: 192 modules, 1028 connections
+Info: merlin_hierarchy_transform: After transform: 61 modules, 284 connections
+Info: merlin_initial_interconnect_transform: After transform: 40 modules, 151 connections
+Info: merlin_translator_transform: After transform: 78 modules, 303 connections
+Info: merlin_domain_transform: After transform: 155 modules, 834 connections
+Info: merlin_router_transform: After transform: 193 modules, 986 connections
+Info: merlin_traffic_limiter_transform: After transform: 194 modules, 991 connections
+Info: merlin_network_to_switch_transform: After transform: 269 modules, 1179 connections
+Info: Inserting clock-crossing logic between cmd_xbar_demux.src36 and cmd_xbar_mux_036.sink0
+Info: Inserting clock-crossing logic between rsp_xbar_demux_036.src0 and rsp_xbar_mux.sink36
+Info: com_altera_sopcmodel_transforms_avalon_ClockCrossingTransform: After transform: 271 modules, 1193 connections
+Info: limiter_update_transform: After transform: 271 modules, 1194 connections
+Info: merlin_clock_and_reset_bridge_transform: After transform: 275 modules, 1469 connections
+Info: merlin_hierarchy_transform: After transform: 62 modules, 291 connections
+Info: merlin_mm_transform: After transform: 62 modules, 291 connections
+Info: merlin_interrupt_mapper_transform: After transform: 63 modules, 295 connections
+Info: merlin_interrupt_sync_transform: After transform: 85 modules, 449 connections
+Info: avalon_st_adapter: Inserting timing_adapter: timing_adapter_0
+Info: com_altera_sopcmodel_transforms_avalonst_AvalonStreamingTransform: After transform: 86 modules, 453 connections
+Info: reset_adaptation_transform: After transform: 90 modules, 396 connections
+Warning: DE2_115_SOPC: "No matching role found for uart_0:s1:dataavailable (dataavailable)"
+Warning: DE2_115_SOPC: "No matching role found for uart_0:s1:readyfordata (readyfordata)"
+Warning: DE2_115_SOPC: "No matching role found for uart_1:s1:dataavailable (dataavailable)"
+Warning: DE2_115_SOPC: "No matching role found for uart_1:s1:readyfordata (readyfordata)"
+Warning: DE2_115_SOPC: "No matching role found for rs232:s1:dataavailable (dataavailable)"
+Warning: DE2_115_SOPC: "No matching role found for rs232:s1:readyfordata (readyfordata)"
+Info: sys_clk_timer: Starting RTL generation for module 'DE2_115_SOPC_sys_clk_timer'
+Info: sys_clk_timer:   Generation command is [exec C:/altera/13.1/quartus/bin//perl/bin/perl.exe -I C:/altera/13.1/quartus/bin//perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=DE2_115_SOPC_sys_clk_timer --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0008_sys_clk_timer_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0008_sys_clk_timer_gen//DE2_115_SOPC_sys_clk_timer_component_configuration.pl  --do_build_sim=0  ]
+Info: sys_clk_timer: Done RTL generation for module 'DE2_115_SOPC_sys_clk_timer'
+Info: sys_clk_timer: "DE2_115_SOPC" instantiated altera_avalon_timer "sys_clk_timer"
+Info: onchip_memory2: Starting RTL generation for module 'DE2_115_SOPC_onchip_memory2'
+Info: onchip_memory2:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=DE2_115_SOPC_onchip_memory2 --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0009_onchip_memory2_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0009_onchip_memory2_gen//DE2_115_SOPC_onchip_memory2_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory2: Done RTL generation for module 'DE2_115_SOPC_onchip_memory2'
+Info: onchip_memory2: "DE2_115_SOPC" instantiated altera_avalon_onchip_memory2 "onchip_memory2"
+Info: sdram: Starting RTL generation for module 'DE2_115_SOPC_sdram'
+Info: sdram:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=DE2_115_SOPC_sdram --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0010_sdram_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0010_sdram_gen//DE2_115_SOPC_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'DE2_115_SOPC_sdram'
+Info: sdram: "DE2_115_SOPC" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: key: Starting RTL generation for module 'DE2_115_SOPC_key'
+Info: key:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE2_115_SOPC_key --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0011_key_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0011_key_gen//DE2_115_SOPC_key_component_configuration.pl  --do_build_sim=0  ]
+Info: key: Done RTL generation for module 'DE2_115_SOPC_key'
+Info: key: "DE2_115_SOPC" instantiated altera_avalon_pio "key"
+Info: sma_in: Starting RTL generation for module 'DE2_115_SOPC_sma_in'
+Info: sma_in:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE2_115_SOPC_sma_in --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0012_sma_in_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0012_sma_in_gen//DE2_115_SOPC_sma_in_component_configuration.pl  --do_build_sim=0  ]
+Info: sma_in: Done RTL generation for module 'DE2_115_SOPC_sma_in'
+Info: sma_in: "DE2_115_SOPC" instantiated altera_avalon_pio "sma_in"
+Info: sma_out: Starting RTL generation for module 'DE2_115_SOPC_sma_out'
+Info: sma_out:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE2_115_SOPC_sma_out --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0013_sma_out_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0013_sma_out_gen//DE2_115_SOPC_sma_out_component_configuration.pl  --do_build_sim=0  ]
+Info: sma_out: Done RTL generation for module 'DE2_115_SOPC_sma_out'
+Info: sma_out: "DE2_115_SOPC" instantiated altera_avalon_pio "sma_out"
+Info: sw: Starting RTL generation for module 'DE2_115_SOPC_sw'
+Info: sw:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE2_115_SOPC_sw --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0014_sw_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0014_sw_gen//DE2_115_SOPC_sw_component_configuration.pl  --do_build_sim=0  ]
+Info: sw: Done RTL generation for module 'DE2_115_SOPC_sw'
+Info: sw: "DE2_115_SOPC" instantiated altera_avalon_pio "sw"
+Info: ledg: Starting RTL generation for module 'DE2_115_SOPC_ledg'
+Info: ledg:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE2_115_SOPC_ledg --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0015_ledg_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0015_ledg_gen//DE2_115_SOPC_ledg_component_configuration.pl  --do_build_sim=0  ]
+Info: ledg: Done RTL generation for module 'DE2_115_SOPC_ledg'
+Info: ledg: "DE2_115_SOPC" instantiated altera_avalon_pio "ledg"
+Info: ledr: Starting RTL generation for module 'DE2_115_SOPC_ledr'
+Info: ledr:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE2_115_SOPC_ledr --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0016_ledr_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0016_ledr_gen//DE2_115_SOPC_ledr_component_configuration.pl  --do_build_sim=0  ]
+Info: ledr: Done RTL generation for module 'DE2_115_SOPC_ledr'
+Info: ledr: "DE2_115_SOPC" instantiated altera_avalon_pio "ledr"
+Info: rs232: Starting RTL generation for module 'DE2_115_SOPC_rs232'
+Info: rs232:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart/generate_rtl.pl --name=DE2_115_SOPC_rs232 --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0017_rs232_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0017_rs232_gen//DE2_115_SOPC_rs232_component_configuration.pl  --do_build_sim=0  ]
+Info: rs232: Done RTL generation for module 'DE2_115_SOPC_rs232'
+Info: rs232: "DE2_115_SOPC" instantiated altera_avalon_uart "rs232"
+Info: i2c_scl: Starting RTL generation for module 'DE2_115_SOPC_i2c_scl'
+Info: i2c_scl:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE2_115_SOPC_i2c_scl --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0018_i2c_scl_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0018_i2c_scl_gen//DE2_115_SOPC_i2c_scl_component_configuration.pl  --do_build_sim=0  ]
+Info: i2c_scl: Done RTL generation for module 'DE2_115_SOPC_i2c_scl'
+Info: i2c_scl: "DE2_115_SOPC" instantiated altera_avalon_pio "i2c_scl"
+Info: i2c_sda: Starting RTL generation for module 'DE2_115_SOPC_i2c_sda'
+Info: i2c_sda:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE2_115_SOPC_i2c_sda --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0019_i2c_sda_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0019_i2c_sda_gen//DE2_115_SOPC_i2c_sda_component_configuration.pl  --do_build_sim=0  ]
+Info: i2c_sda: Done RTL generation for module 'DE2_115_SOPC_i2c_sda'
+Info: i2c_sda: "DE2_115_SOPC" instantiated altera_avalon_pio "i2c_sda"
+Info: lcd: Starting RTL generation for module 'DE2_115_SOPC_lcd'
+Info: lcd:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_lcd_16207 -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_lcd_16207/generate_rtl.pl --name=DE2_115_SOPC_lcd --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0020_lcd_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0020_lcd_gen//DE2_115_SOPC_lcd_component_configuration.pl  --do_build_sim=0  ]
+Info: lcd: Done RTL generation for module 'DE2_115_SOPC_lcd'
+Info: lcd: "DE2_115_SOPC" instantiated altera_avalon_lcd_16207 "lcd"
+Info: ir: Starting RTL generation for module 'DE2_115_SOPC_ir'
+Info: ir:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE2_115_SOPC_ir --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0021_ir_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0021_ir_gen//DE2_115_SOPC_ir_component_configuration.pl  --do_build_sim=0  ]
+Info: ir: Done RTL generation for module 'DE2_115_SOPC_ir'
+Info: ir: "DE2_115_SOPC" instantiated altera_avalon_pio "ir"
+Info: sram: "DE2_115_SOPC" instantiated TERASIC_SRAM "sram"
+Info: seg7: "DE2_115_SOPC" instantiated SEG7_IF "seg7"
+Info: audio: "DE2_115_SOPC" instantiated AUDIO_IF "audio"
+Info: jtag_uart: Starting RTL generation for module 'DE2_115_SOPC_jtag_uart'
+Info: jtag_uart:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=DE2_115_SOPC_jtag_uart --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0024_jtag_uart_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0024_jtag_uart_gen//DE2_115_SOPC_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart: Done RTL generation for module 'DE2_115_SOPC_jtag_uart'
+Info: jtag_uart: "DE2_115_SOPC" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: sd_dat: Starting RTL generation for module 'DE2_115_SOPC_sd_dat'
+Info: sd_dat:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE2_115_SOPC_sd_dat --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0025_sd_dat_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0025_sd_dat_gen//DE2_115_SOPC_sd_dat_component_configuration.pl  --do_build_sim=0  ]
+Info: sd_dat: Done RTL generation for module 'DE2_115_SOPC_sd_dat'
+Info: sd_dat: "DE2_115_SOPC" instantiated altera_avalon_pio "sd_dat"
+Info: pll: "DE2_115_SOPC" instantiated altpll "pll"
+Info: usb: "DE2_115_SOPC" instantiated ISP1362_IF "usb"
+Info: sysver_0: "DE2_115_SOPC" instantiated sysver "sysver_0"
+Info: pipeline_bridge_swap_transform: After transform: 5 modules, 39 connections
+Info: No custom instruction connections, skipping transform 
+Info: reset_upgrade_transform: After transform: 5 modules, 42 connections
+Info: vic_0: "DE2_115_SOPC" instantiated altera_vic "vic_0"
+Warning: Verilog HDL Implicit Net warning at can_top.v(617): created implicit net for "rx_inter"
+Warning: Verilog HDL Implicit Net warning at can_top.v(771): created implicit net for "extended_mode_o"
+Warning: Verilog HDL Implicit Net warning at can_top.v(617): created implicit net for "rx_inter"
+Warning: Verilog HDL Implicit Net warning at can_top.v(771): created implicit net for "extended_mode_o"
+Info: can_top_0: "DE2_115_SOPC" instantiated can_top "can_top_0"
+Info: uart_0: Starting RTL generation for module 'DE2_115_SOPC_uart_0'
+Info: uart_0:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart/generate_rtl.pl --name=DE2_115_SOPC_uart_0 --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0030_uart_0_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0030_uart_0_gen//DE2_115_SOPC_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info: uart_0: Done RTL generation for module 'DE2_115_SOPC_uart_0'
+Info: uart_0: "DE2_115_SOPC" instantiated altera_avalon_uart "uart_0"
+Info: clock_crossing_io: "DE2_115_SOPC" instantiated altera_avalon_mm_clock_crossing_bridge "clock_crossing_io"
+Info: cpu: Starting RTL generation for module 'DE2_115_SOPC_cpu'
+Info: cpu:   Generation command is [exec C:/altera/13.1/quartus/bin/eperlcmd.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I C:/altera/13.1/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I C:/altera/13.1/quartus/../ip/altera/nios2_ip/altera_nios2 -I C:/altera/13.1/quartus/../ip/altera/nios2_ip/altera_nios2 -- C:/altera/13.1/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=DE2_115_SOPC_cpu --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0031_cpu_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0031_cpu_gen//DE2_115_SOPC_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2015.03.24 14:15:06 (*) Starting Nios II generation
+Info: cpu: # 2015.03.24 14:15:06 (*)   Checking for plaintext license.
+Info: cpu: # 2015.03.24 14:15:07 (*)   Couldn't query license setup in Quartus directory C:/altera/13.1/quartus
+Info: cpu: # 2015.03.24 14:15:07 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2015.03.24 14:15:08 (*)   Plaintext license not found.
+Info: cpu: # 2015.03.24 14:15:08 (*)   Checking for encrypted license (non-evaluation).
+Info: cpu: # 2015.03.24 14:15:09 (*)   Couldn't query license setup in Quartus directory C:/altera/13.1/quartus
+Info: cpu: # 2015.03.24 14:15:09 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2015.03.24 14:15:10 (*)   Encrypted license found.  SOF will not be time-limited.
+Info: cpu: # 2015.03.24 14:15:10 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2015.03.24 14:15:10 (*)   Creating all objects for CPU
+Info: cpu: # 2015.03.24 14:15:10 (*)     Testbench
+Info: cpu: # 2015.03.24 14:15:11 (*)     Instruction decoding
+Info: cpu: # 2015.03.24 14:15:11 (*)       Instruction fields
+Info: cpu: # 2015.03.24 14:15:11 (*)       Instruction decodes
+Info: cpu: # 2015.03.24 14:15:11 (*)       Signals for RTL simulation waveforms
+Info: cpu: # 2015.03.24 14:15:11 (*)       Instruction controls
+Info: cpu: # 2015.03.24 14:15:11 (*)     Pipeline frontend
+Info: cpu: # 2015.03.24 14:15:11 (*)       IMPU
+Info: cpu: # 2015.03.24 14:15:11 (*)     Pipeline backend
+Info: cpu: # 2015.03.24 14:15:12 (*)       DMPU
+Info: cpu: # 2015.03.24 14:15:13 (*)   Generating RTL from CPU objects
+Info: cpu: # 2015.03.24 14:15:16 (*)   Creating encrypted RTL
+Info: cpu: # 2015.03.24 14:15:17 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'DE2_115_SOPC_cpu'
+Info: cpu: "DE2_115_SOPC" instantiated altera_nios2_qsys "cpu"
+Info: sysid: "DE2_115_SOPC" instantiated altera_avalon_sysid_qsys "sysid"
+Info: tristate_conduit_bridge_flash: "DE2_115_SOPC" instantiated altera_tristate_conduit_bridge "tristate_conduit_bridge_flash"
+Info: pipeline_bridge_swap_transform: After transform: 4 modules, 7 connections
+Info: No custom instruction connections, skipping transform 
+Info: tristate_conduit_pin_sharer_flash: "DE2_115_SOPC" instantiated altera_tristate_conduit_pin_sharer "tristate_conduit_pin_sharer_flash"
+Info: pipeline_bridge_swap_transform: After transform: 5 modules, 10 connections
+Info: No custom instruction connections, skipping transform 
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 5 modules, 10 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 5 modules, 10 connections
+Info: cfi_flash: "DE2_115_SOPC" instantiated altera_generic_tristate_controller "cfi_flash"
+Info: pipeline_bridge_swap_transform: After transform: 1 modules, 0 connections
+Info: No custom instruction connections, skipping transform 
+Info: tse: "DE2_115_SOPC" instantiated altera_eth_tse "tse"
+Info: sgdma_rx: Starting RTL generation for module 'DE2_115_SOPC_sgdma_rx'
+Info: sgdma_rx:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_sgdma -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_sgdma/generate_rtl.pl --name=DE2_115_SOPC_sgdma_rx --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0034_sgdma_rx_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0034_sgdma_rx_gen//DE2_115_SOPC_sgdma_rx_component_configuration.pl  --do_build_sim=0  ]
+Info: sgdma_rx: Done RTL generation for module 'DE2_115_SOPC_sgdma_rx'
+Info: sgdma_rx: "DE2_115_SOPC" instantiated altera_avalon_sgdma "sgdma_rx"
+Info: sgdma_tx: Starting RTL generation for module 'DE2_115_SOPC_sgdma_tx'
+Info: sgdma_tx:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_sgdma -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_sgdma/generate_rtl.pl --name=DE2_115_SOPC_sgdma_tx --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0035_sgdma_tx_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0035_sgdma_tx_gen//DE2_115_SOPC_sgdma_tx_component_configuration.pl  --do_build_sim=0  ]
+Info: sgdma_tx: Done RTL generation for module 'DE2_115_SOPC_sgdma_tx'
+Info: sgdma_tx: "DE2_115_SOPC" instantiated altera_avalon_sgdma "sgdma_tx"
+Info: descriptor_memory: Starting RTL generation for module 'DE2_115_SOPC_descriptor_memory'
+Info: descriptor_memory:   Generation command is [exec C:/altera/13.1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.1/quartus/bin/perl/lib -I C:/altera/13.1/quartus/sopc_builder/bin/europa -I C:/altera/13.1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.1/quartus/sopc_builder/bin -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/altera/13.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=DE2_115_SOPC_descriptor_memory --dir=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0036_descriptor_memory_gen/ --quartus_dir=C:/altera/13.1/quartus --verilog --config=C:/Users/HONDA-~1/AppData/Local/Temp/alt6518_2224261612173979214.dir/0036_descriptor_memory_gen//DE2_115_SOPC_descriptor_memory_component_configuration.pl  --do_build_sim=0  ]
+Info: descriptor_memory: Done RTL generation for module 'DE2_115_SOPC_descriptor_memory'
+Info: descriptor_memory: "DE2_115_SOPC" instantiated altera_avalon_onchip_memory2 "descriptor_memory"
+Info: pipeline_bridge_swap_transform: After transform: 172 modules, 583 connections
+Info: No custom instruction connections, skipping transform 
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 172 modules, 583 connections
+Info: mm_interconnect_0: "DE2_115_SOPC" instantiated altera_merlin_interconnect_wrapper "mm_interconnect_0"
+Info: pipeline_bridge_swap_transform: After transform: 235 modules, 811 connections
+Info: No custom instruction connections, skipping transform 
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: merlin_initial_interconnect_transform: After transform: 0 modules, 0 connections
+Info: No Avalon connections, skipping transform 
+Info: merlin_hierarchy_transform: After transform: 235 modules, 811 connections
+Info: mm_interconnect_1: "DE2_115_SOPC" instantiated altera_merlin_interconnect_wrapper "mm_interconnect_1"
+Info: irq_mapper: "DE2_115_SOPC" instantiated altera_irq_mapper "irq_mapper"
+Info: irq_synchronizer: "DE2_115_SOPC" instantiated altera_irq_clock_crosser "irq_synchronizer"
+Info: pipeline_bridge_swap_transform: After transform: 3 modules, 3 connections
+Info: No custom instruction connections, skipping transform 
+Info: avalon_st_adapter: "DE2_115_SOPC" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: rst_controller: "DE2_115_SOPC" instantiated altera_reset_controller "rst_controller"
+Info: vic_csr: "vic_0" instantiated altera_vic_csr "vic_csr"
+Info: vic_priority: "vic_0" instantiated altera_vic_priority "vic_priority"
+Info: vic_vector: "vic_0" instantiated altera_vic_vector "vic_vector"
+Info: pin_sharer: "tristate_conduit_pin_sharer_flash" instantiated altera_tristate_conduit_pin_sharer_core "pin_sharer"
+Info: arbiter: "tristate_conduit_pin_sharer_flash" instantiated altera_merlin_std_arbitrator "arbiter"
+Info: tdt: "cfi_flash" instantiated altera_tristate_controller_translator "tdt"
+Info: slave_translator: "cfi_flash" instantiated altera_merlin_slave_translator "slave_translator"
+Info: tda: "cfi_flash" instantiated altera_tristate_controller_aggregator "tda"
+Info: i_tse_mac: "tse" instantiated altera_eth_tse_mac "i_tse_mac"
+Info: cpu_instruction_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "cpu_instruction_master_translator"
+Info: cpu_instruction_master_translator_avalon_universal_master_0_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "cpu_instruction_master_translator_avalon_universal_master_0_agent"
+Info: cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent"
+Info: cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo"
+Info: addr_router: "mm_interconnect_0" instantiated altera_merlin_router "addr_router"
+Info: addr_router_001: "mm_interconnect_0" instantiated altera_merlin_router "addr_router_001"
+Info: addr_router_002: "mm_interconnect_0" instantiated altera_merlin_router "addr_router_002"
+Info: addr_router_006: "mm_interconnect_0" instantiated altera_merlin_router "addr_router_006"
+Info: id_router: "mm_interconnect_0" instantiated altera_merlin_router "id_router"
+Info: id_router_001: "mm_interconnect_0" instantiated altera_merlin_router "id_router_001"
+Info: id_router_002: "mm_interconnect_0" instantiated altera_merlin_router "id_router_002"
+Info: id_router_004: "mm_interconnect_0" instantiated altera_merlin_router "id_router_004"
+Info: id_router_005: "mm_interconnect_0" instantiated altera_merlin_router "id_router_005"
+Info: id_router_011: "mm_interconnect_0" instantiated altera_merlin_router "id_router_011"
+Info: id_router_018: "mm_interconnect_0" instantiated altera_merlin_router "id_router_018"
+Info: limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "limiter"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "burst_adapter"
+Info: cmd_xbar_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_xbar_demux"
+Info: cmd_xbar_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_xbar_demux_001"
+Info: cmd_xbar_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_xbar_demux_002"
+Info: cmd_xbar_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_xbar_mux"
+Info: cmd_xbar_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_xbar_mux_001"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_xbar_mux_005: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_xbar_mux_005"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_xbar_mux_011: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_xbar_mux_011"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_xbar_mux_018: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_xbar_mux_018"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_xbar_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_xbar_demux"
+Info: rsp_xbar_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_xbar_demux_001"
+Info: rsp_xbar_demux_011: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_xbar_demux_011"
+Info: rsp_xbar_demux_018: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_xbar_demux_018"
+Info: rsp_xbar_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_xbar_mux"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_xbar_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_xbar_mux_001"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_xbar_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_xbar_mux_002"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "width_adapter"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: crosser: "mm_interconnect_0" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: addr_router: "mm_interconnect_1" instantiated altera_merlin_router "addr_router"
+Info: id_router: "mm_interconnect_1" instantiated altera_merlin_router "id_router"
+Info: id_router_036: "mm_interconnect_1" instantiated altera_merlin_router "id_router_036"
+Info: cmd_xbar_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_xbar_demux"
+Info: cmd_xbar_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_xbar_mux"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_xbar_mux_036: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_xbar_mux_036"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_xbar_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_xbar_demux"
+Info: rsp_xbar_demux_036: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_xbar_demux_036"
+Info: rsp_xbar_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_xbar_mux"
+Info: Reusing file C:/Users/honda-kazuki/Documents/Projects/TINET_ATK2/FPGA/tinet_atk2/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: timing_adapter_0: Starting generation. 
+Info: timing_adapter_0_fifo: Starting generation. 
+Info: timing_adapter_0: "avalon_st_adapter" instantiated timing_adapter "timing_adapter_0"
+Info: DE2_115_SOPC: Done "DE2_115_SOPC" with 95 modules, 229 files, 7344677 bytes
+Info: ip-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

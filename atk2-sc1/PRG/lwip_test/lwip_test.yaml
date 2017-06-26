@@ -1,0 +1,54 @@
+Ecuc:
+  Os:
+    OsInclude:
+      OsIncludeFileName: lwip_test.h
+    AppMode:
+      DefinitionRef: OsAppMode
+    OsOS:
+      OsStackMonitoring: true
+      OsUseGetServiceId: true
+      OsUseParameterAccess: true
+      OsScalabilityClass: SC1
+      OsStatus: EXTENDED
+      OsHooks:
+        OsErrorHook: true
+        OsPostTaskHook: true
+        OsPreTaskHook: true
+        OsProtectionHook: true
+        OsShutdownHook: true
+        OsStartupHook: true
+      OsHookStack:
+        OsHookStackSize: 0x200
+
+#
+#  タスク
+#
+
+    USRV_TASK:
+      DefinitionRef: OsTask
+      OsTaskActivation: 1U
+      OsTaskPriority: (TMAX_TPRI - USRV_MAIN_PRIORITY)
+      OsTaskStackSize: USRV_STACK_SIZE
+      OsTaskSchedule: FULL
+#      OsTaskResourceRef:
+#        - /Ecuc/Os/RES_UDP_CEP_LOCK1
+#        - /Ecuc/Os/RES_UDP_CEP
+#        - /Ecuc/Os/RES_IP2STR_BUFF_LOCK
+#      OsTaskEventRef: /Ecuc/Os/EVT_USRV
+      OsTaskAutostart:
+        OsTaskAppModeRef: /Ecuc/Os/AppMode
+#    EVT_USRV:
+#      DefinitionRef: OsEvent
+#    ALM_USRV:
+#      DefinitionRef: OsAlarm
+#      OsAlarmCounterRef: /Ecuc/Os/MAIN_HW_COUNTER
+#      OsAlarmAction:
+#        OsAlarmSetEvent:
+#          OsAlarmSetEventTaskRef: /Ecuc/Os/USRV_TASK
+#          OsAlarmSetEventRef: /Ecuc/Os/EVT_USRV
+    LWIP_ALARM:
+      DefinitionRef: OsAlarm
+      OsAlarmCounterRef: /Ecuc/Os/MAIN_HW_COUNTER
+      OsAlarmAction:
+        OsAlarmCallback:
+          OsAlarmCallbackName: LWIP_ALARM_CALLBACK

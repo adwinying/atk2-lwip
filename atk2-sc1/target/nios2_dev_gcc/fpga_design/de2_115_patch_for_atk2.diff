@@ -1,0 +1,143 @@
+diff -u DE2_115_NIOS_DEVICE_LED/DE2_115_NIOS_DEVICE_LED.qsf DE2_115_NIOS_DEVICE_LED_for_atk2/DE2_115_NIOS_DEVICE_LED.qsf
+--- DE2_115_NIOS_DEVICE_LED/DE2_115_NIOS_DEVICE_LED.qsf	2012-06-13 14:59:29.000000000 +0900
++++ DE2_115_NIOS_DEVICE_LED_for_atk2/DE2_115_NIOS_DEVICE_LED.qsf	2012-11-21 21:48:27.483499000 +0900
+@@ -30,7 +30,7 @@
+ set_global_assignment -name DEVICE EP4CE115F29C7
+ set_global_assignment -name TOP_LEVEL_ENTITY DE2_115_NIOS_DEVICE_LED
+ set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.1 SP1"
+-set_global_assignment -name LAST_QUARTUS_VERSION 10.0
++set_global_assignment -name LAST_QUARTUS_VERSION "11.0 SP1"
+ set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:43:06  MARCH 25, 2010"
+ set_global_assignment -name SDC_FILE de2_115_golden_sopc.SDC
+ 
+@@ -521,10 +521,6 @@
+ #============================================================
+ # GPIO, GPIO connect to GPIO Default
+ #============================================================
+-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[0]
+-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[1]
+-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[2]
+-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[3]
+ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[4]
+ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[5]
+ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[6]
+@@ -628,7 +624,6 @@
+ set_global_assignment -name SOPC_BUILDER_SIGNATURE_ID 002618860F9B000001268748D130 -qip DE2_115_SOPC.qip
+ set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+ set_global_assignment -name MISC_FILE "D:/svn/de2_115_golden_sopc/de2_115_golden_sopc.dpf"
+-set_global_assignment -name INCREMENTAL_COMPILATION OFF
+ set_global_assignment -name MISC_FILE "D:/Document/de2c4/de2_115_golden_sopc/de2_115_golden_sopc.dpf"
+ set_location_assignment PIN_A17 -to ENET0_GTX_CLK
+ set_location_assignment PIN_A21 -to ENET0_INT_N
+@@ -824,10 +819,6 @@
+ set_location_assignment PIN_Y25 -to HEX2[2]
+ set_location_assignment PIN_W26 -to HEX2[3]
+ set_location_assignment PIN_Y26 -to HEX2[4]
+-set_location_assignment PIN_AB22 -to GPIO[0]
+-set_location_assignment PIN_AC15 -to GPIO[1]
+-set_location_assignment PIN_AB21 -to GPIO[2]
+-set_location_assignment PIN_Y17 -to GPIO[3]
+ set_location_assignment PIN_AC21 -to GPIO[4]
+ set_location_assignment PIN_Y16 -to GPIO[5]
+ set_location_assignment PIN_AD21 -to GPIO[6]
+@@ -1225,7 +1216,6 @@
+ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+ set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+ set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+ set_instance_assignment -name IO_MAXIMUM_TOGGLE_RATE "0 MHz" -to HEX2
+ set_instance_assignment -name IO_MAXIMUM_TOGGLE_RATE "0 MHz" -to HEX0
+ set_instance_assignment -name IO_MAXIMUM_TOGGLE_RATE "0 MHz" -to HEX1
+@@ -1240,3 +1230,12 @@
+ 
+ set_global_assignment -name MISC_FILE "E:/DE2_115_NEW/trunk/ref_design/DE2_115_NIOS_DEVICE_LED/DE2_115_NIOS_DEVICE_LED.dpf"
+ set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION OFF
++
++set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
++set_global_assignment -name MISC_FILE "C:/cygwin/home/hkawashi/svn/atk2-conso/trunk/HW_IP/de2-115_single_canc_test/DE2_115_NIOS_DEVICE_LED.dpf"
++set_location_assignment PIN_AB22 -to UART_0_RXD
++set_location_assignment PIN_AC15 -to UART_0_TXD
++set_location_assignment PIN_Y17 -to UART_1_TXD
++set_location_assignment PIN_AB21 -to UART_1_RXD
++set_global_assignment -name MISC_FILE "C:/work/atk2conso/nces_svn/trunk/HW_IP/de2-115_single_6_4/DE2_115_NIOS_DEVICE_LED.dpf"
++set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+\ ファイル末尾に改行がありません
+diff -u DE2_115_NIOS_DEVICE_LED/DE2_115_NIOS_DEVICE_LED.v DE2_115_NIOS_DEVICE_LED_for_atk2/DE2_115_NIOS_DEVICE_LED.v
+--- DE2_115_NIOS_DEVICE_LED/DE2_115_NIOS_DEVICE_LED.v	2012-06-13 14:59:29.000000000 +0900
++++ DE2_115_NIOS_DEVICE_LED_for_atk2/DE2_115_NIOS_DEVICE_LED.v	2012-11-21 21:48:27.483499000 +0900
+@@ -87,6 +87,13 @@
+ 	UART_RXD,
+ 	UART_TXD,
+ 
++	UART_0_RXD,
++	UART_0_TXD,
++
++	UART_1_RXD,
++	UART_1_TXD,
++
++
+ 	//////// PS2 //////////
+ 	PS2_CLK,
+ 	PS2_DAT,
+@@ -290,6 +297,12 @@
+ input		          		UART_RXD;
+ output		        		UART_TXD;
+ 
++input		          		UART_0_RXD;
++output		        		UART_0_TXD;
++
++input		          		UART_1_RXD;
++output		        		UART_1_TXD;
++
+ //////////// PS2 //////////
+ inout		          		PS2_CLK;
+ inout		          		PS2_DAT;
+@@ -420,7 +433,7 @@
+ output		        		FL_WP_N;
+ 
+ //////////// GPIO //////////
+-inout		     [35:0]		GPIO;
++inout		     [35:4]		GPIO;
+ 
+ //////////// HSMC (LVDS) //////////
+ 
+@@ -480,6 +493,12 @@
+                        .avs_s1_export_DACLRC_to_the_audio(AUD_DACLRCK),
+                        .avs_s1_export_XCK_from_the_audio(AUD_XCK),
+ 
++                      // the_can_top_0
++                       .bus_off_on_from_the_can_top_0(EX_IO[3]),
++                       .clkout_o_from_the_can_top_0(EX_IO[2]),
++                       .rx_i_to_the_can_top_0(EX_IO[0]),
++                       .tx_o_from_the_can_top_0(EX_IO[1]),
++
+                       // the_eep_i2c_scl
+                        .out_port_from_the_eep_i2c_scl(EEP_I2C_SCLK),
+ 
+@@ -515,6 +534,12 @@
+                        .rts_n_from_the_rs232(UART_RTS),
+                        .rxd_to_the_rs232(UART_RXD),
+                        .txd_from_the_rs232(UART_TXD),
++
++                       .rxd_to_the_uart_0(UART_0_RXD),
++                       .txd_from_the_uart_0(UART_0_TXD),
++
++                       .rxd_to_the_uart_1(UART_1_RXD),
++                       .txd_from_the_uart_1(UART_1_TXD),
+                        
+                       // the_sdram
+                        .zs_addr_from_the_sdram(DRAM_ADDR),
+@@ -594,8 +619,11 @@
+ 
+ ///////////////////////////////////////////
+ // GPIO
+-assign GPIO[17:0] = (io_dir)?GPIO[35:18]:18'hz;
+-assign GPIO[35:18] = (io_dir)?GPIO[17:0]:18'hz;
++//assign GPIO[17:0] = (io_dir)?GPIO[35:18]:18'hz;
++//assign GPIO[35:18] = (io_dir)?GPIO[17:0]:18'hz;
++assign GPIO[17:4] = 16'hz;
++assign GPIO[35:18] = 18'hz;
++
+ 
+ ///////////////////////////////////////////
+ // HSMC

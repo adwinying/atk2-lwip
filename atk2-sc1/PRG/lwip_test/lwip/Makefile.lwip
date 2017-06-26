@@ -1,0 +1,260 @@
+# 
+# lwIP Makefile
+# 
+
+#lwIP root dir
+LWIP_ROOT = $(APPLDIR)/lwip
+
+#lwIP includes
+INCLUDES := $(INCLUDES) -I$(APPLDIR)/lwip/src/include 
+INCLUDES := $(INCLUDES) -I$(APPLDIR)/lwip/src/include/ipv4 
+
+
+LWIP_DIR = $(LWIP_ROOT)/src/api:
+LWIP_COBJS += api_lib.o
+LWIP_COBJS += api_msg.o
+LWIP_COBJS += err.o
+LWIP_COBJS += netbuf.o
+LWIP_COBJS += netdb.o
+LWIP_COBJS += netifapi.o
+LWIP_COBJS += sockets.o
+LWIP_COBJS += tcpip.o
+
+
+LWIP_DIR += $(LWIP_ROOT)/src/core:
+LWIP_COBJS += mem.o
+LWIP_COBJS += memp.o
+LWIP_COBJS += netif.o
+LWIP_COBJS += pbuf.o
+LWIP_COBJS += raw.o
+LWIP_COBJS += stats.o
+LWIP_COBJS += sys.o
+LWIP_COBJS += tcp.o
+LWIP_COBJS += tcp_in.o
+LWIP_COBJS += tcp_out.o
+LWIP_COBJS += udp.o
+LWIP_COBJS += dns.o
+LWIP_COBJS += init.o
+LWIP_COBJS += dhcp.o
+LWIP_COBJS += def.o
+LWIP_COBJS += timers.o
+
+
+LWIP_DIR += $(LWIP_ROOT)/src/core/snmp:
+LWIP_COBJS += asn1_dec.o
+LWIP_COBJS += asn1_enc.o
+LWIP_COBJS += mib2.o
+LWIP_COBJS += mib_structs.o
+LWIP_COBJS += msg_in.o
+LWIP_COBJS += msg_out.o
+
+
+LWIP_DIR += $(LWIP_ROOT)/src/core/ipv4:
+LWIP_COBJS += autoip.o
+LWIP_COBJS += icmp.o
+LWIP_COBJS += igmp.o
+LWIP_COBJS += inet.o
+LWIP_COBJS += inet_chksum.o
+LWIP_COBJS += ip.o
+LWIP_COBJS += ip_addr.o
+LWIP_COBJS += ip_frag.o
+
+
+LWIP_DIR += $(LWIP_ROOT)/src/netif:
+LWIP_COBJS += slipif.o
+LWIP_COBJS += etharp.o
+LWIP_COBJS += ethernetif.o
+
+
+LWIP_DIR += $(LWIP_ROOT)/src/netif/ppp:
+LWIP_COBJS += auth.o
+LWIP_COBJS += fsm.o
+LWIP_COBJS += ipcp.o
+LWIP_COBJS += lcp.o
+LWIP_COBJS += magic.o
+LWIP_COBJS += ppp.o
+LWIP_COBJS += vj.o
+LWIP_COBJS += chap.o
+LWIP_COBJS += chpms.o
+LWIP_COBJS += md5.o
+LWIP_COBJS += pap.o
+LWIP_COBJS += ppp_oe.o
+LWIP_COBJS += randm.o
+
+
+LWIP_DIR += $(APPLDIR)/drivers
+LWIP_COBJS += alteraTseEthernetif.o
+LWIP_COBJS += fs.o
+LWIP_COBJS += fsdata.o
+LWIP_COBJS += httpd.o
+LWIP_COBJS += lwip_tse_mac.o
+LWIP_COBJS += tse_my_system.o
+
+
+#Add LWIP_DIR to APPL_DIR
+APPL_DIR := $(LWIP_DIR):$(APPL_DIR)
+#Add lwip obj to list of obj
+APPL_COBJS := $(LWIP_COBJS) $(APPL_COBJS)
+
+
+
+
+
+#
+# TEMPORARY: Altera drivers
+# TODO: Place this in a separate file?
+#
+
+# Altera drivers include
+INCLUDES := $(INCLUDES) -I$(APPLDIR)/drivers 
+INCLUDES := $(INCLUDES) -I$(APPLDIR)/drivers/inc
+
+ALT_DIR = $(APPLDIR)/drivers/src
+
+# altera_avalon_jtag_uart_driver sources 
+#ALT_COBJS += altera_avalon_cfi_flash.o
+#ALT_COBJS += altera_avalon_cfi_flash_amd.o
+#ALT_COBJS += altera_avalon_cfi_flash_intel.o
+#ALT_COBJS += altera_avalon_cfi_flash_table.o
+
+# altera_avalon_jtag_uart_driver sources 
+#ALT_COBJS += altera_avalon_jtag_uart_init.o
+#ALT_COBJS += altera_avalon_jtag_uart_read.o
+#ALT_COBJS += altera_avalon_jtag_uart_write.o
+#ALT_COBJS += altera_avalon_jtag_uart_ioctl.o
+#ALT_COBJS += altera_avalon_jtag_uart_fd.o
+
+# altera_avalon_lcd_16207_driver sources 
+#ALT_COBJS += altera_avalon_lcd_16207.o
+#ALT_COBJS += altera_avalon_lcd_16207_fd.o
+
+# altera_avalon_sgdma_driver sources 
+ALT_COBJS += altera_avalon_sgdma.o
+
+# altera_avalon_sysid_qsys_driver sources 
+#ALT_COBJS += altera_avalon_sysid_qsys.o
+
+# altera_avalon_timer_driver sources 
+#ALT_COBJS += altera_avalon_timer_sc.o
+#ALT_COBJS += altera_avalon_timer_ts.o
+#ALT_COBJS += altera_avalon_timer_vars.o
+
+# altera_avalon_uart_driver sources 
+#ALT_COBJS += altera_avalon_uart_fd.o
+#ALT_COBJS += altera_avalon_uart_init.o
+#ALT_COBJS += altera_avalon_uart_ioctl.o
+#ALT_COBJS += altera_avalon_uart_read.o
+#ALT_COBJS += altera_avalon_uart_write.o
+
+# altera_eth_tse_driver_hal sources 
+ALT_COBJS += altera_avalon_tse_system_info.o
+ALT_COBJS += altera_avalon_tse.o
+
+# altera_vic_driver sources 
+ALT_COBJS += altera_vic.o
+ALT_COBJS += altera_vic_irq_init.o
+ALT_COBJS += altera_vic_isr_register.o
+ALT_COBJS += altera_vic_sw_intr.o
+ALT_COBJS += altera_vic_set_level.o
+KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_0_vector_tbl.o
+#KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_funnel_non_preemptive.o
+#KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_funnel_non_preemptive_nmio
+#KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_funnel_preemptive.o
+
+
+
+
+
+#
+# HAL
+#
+
+# HAL driver source
+ALT_DIR := $(ALT_DIR):$(APPLDIR)/HAL/src
+
+# HAL includes
+INCLUDES := $(INCLUDES) -I$(APPLDIR)/HAL/inc 
+
+# altera_nios2_qsys_hal_driver sources 
+#ALT_COBJS += altera_nios2_qsys_irq.o
+ALT_COBJS += alt_usleep.o
+ALT_COBJS += alt_busy_sleep.o
+#ALT_COBJS += alt_irq_vars.o
+#ALT_COBJS += alt_icache_flush.o
+#ALT_COBJS += alt_icache_flush_all.o
+ALT_COBJS += alt_dcache_flush.o
+#ALT_COBJS += alt_dcache_flush_all.o
+#ALT_COBJS += alt_dcache_flush_no_writeback.o
+#ALT_COBJS += alt_ecc_fatal_exception.o
+#ALT_COBJS += alt_instruction_exception_entry.o
+ALT_COBJS += alt_irq_register.o
+ALT_COBJS += alt_iic.o
+#ALT_COBJS += alt_remap_cached.o
+ALT_COBJS += alt_remap_uncached.o
+#ALT_COBJS += alt_uncached_free.o
+ALT_COBJS += alt_uncached_malloc.o
+ALT_COBJS += alt_do_ctors.o
+ALT_COBJS += alt_do_dtors.o
+#ALT_COBJS += alt_gmon.o
+
+# hal sources
+#ALT_COBJS += alt_alarm_start.o
+#ALT_COBJS += alt_close.o
+ALT_COBJS += alt_dev.o
+ALT_COBJS += alt_dev_llist_insert.o
+#ALT_COBJS += alt_dma_rxchan_open.o
+#ALT_COBJS += alt_dma_txchan_open.o
+#ALT_COBJS += alt_environ.o
+#ALT_COBJS += alt_env_lock.o
+ALT_COBJS += alt_errno.o
+#ALT_COBJS += alt_execve.o
+#ALT_COBJS += alt_exit.o
+#ALT_COBJS += alt_fcntl.o
+#ALT_COBJS += alt_fd_lock.o
+#ALT_COBJS += alt_fd_unlock.o
+ALT_COBJS += alt_find_dev.o
+#ALT_COBJS += alt_find_file.o
+#ALT_COBJS += alt_flash_dev.o
+#ALT_COBJS += alt_fork.o
+#ALT_COBJS += alt_fs_reg.o
+#ALT_COBJS += alt_fstat.o
+#ALT_COBJS += alt_get_fd.o
+#ALT_COBJS += alt_getchar.o
+#ALT_COBJS += alt_getpid.o
+#ALT_COBJS += alt_gettod.o
+#ALT_COBJS += alt_iic_isr_register.o
+#ALT_COBJS += alt_instruction_exception_register.o
+#ALT_COBJS += alt_ioctl.o
+ALT_COBJS += alt_io_redirect.o
+#ALT_COBJS += alt_irq_handler.o
+#ALT_COBJS += alt_isatty.o
+#ALT_COBJS += alt_kill.o
+#ALT_COBJS += alt_link.o
+#ALT_COBJS += alt_load.o
+#ALT_COBJS += alt_log_printf.o
+#ALT_COBJS += alt_lseek.o
+ALT_COBJS += alt_main.o
+KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) crt0.o
+ALT_COBJS += alt_malloc_lock.o
+#ALT_COBJS += alt_open.o
+#ALT_COBJS += alt_printf.o
+#ALT_COBJS += alt_putchar.o
+#ALT_COBJS += alt_putstr.o
+#ALT_COBJS += alt_read.o
+ALT_COBJS += alt_release_fd.o
+#ALT_COBJS += alt_rename.o
+#ALT_COBJS += alt_sbrk.o
+#ALT_COBJS += alt_settod.o
+#ALT_COBJS += alt_stat.o
+ALT_COBJS += alt_sys_init.o
+#ALT_COBJS += alt_tick.o
+#ALT_COBJS += alt_times.o
+#ALT_COBJS += alt_unlink.o
+#ALT_COBJS += alt_wait.o
+#ALT_COBJS += alt_write.o
+
+#Add ALT_DIR to APPL_DIR
+APPL_DIR := $(ALT_DIR):$(APPL_DIR)
+#Add alt obj to list of obj
+APPL_COBJS := $(ALT_COBJS) $(APPL_COBJS)
+
