@@ -9,15 +9,16 @@
 #include "Os.h"
 #include "t_syslog.h"
 #include "t_stdlib.h"
+
 #include "sysmod/serial.h"
 #include "sysmod/syslog.h"
-
 #include "sysmod/banner.h"
+
 #include "target_sysmod.h"
 #include "target_serial.h"
 #include "target_hw_counter.h"
-
 #include "target_test.h"
+
 #include "lwip_test.h"
 
 
@@ -46,14 +47,19 @@
 #include "netif/etharp.h"
 #include "drivers/alteraTseEthernetif.h"
 
+
+
+
+
 /*
  * lwIP #define and constants/variables
  */
 
 #define mSdelay(x) usleep(x*1000)
 
-//  Define USE_DHCP to 1 to use DHCP.  Otherwise a static IP must be defined
+// Define USE_DHCP to 1 to use DHCP.  Otherwise a static IP must be defined
 #define USE_DHCP 0
+
 #if ! LWIP_DHCP
 #error LWIP_DHCP must be enabled in lwipopts.h
 #endif
@@ -62,13 +68,13 @@
 struct ip_addr lwipStaticIp;
 #endif
 
-//  Define BUILD_HTTPD to 1 to build the httpserver_raw contrib example
+// Define BUILD_HTTPD to 1 to build the httpserver_raw contrib example
 #define BUILD_HTTPD 1
 
-//  Alarm varibles
+// Alarm varibles
 static uint32   lwip250mStimer;
 
-//  Define netif for lwIP
+// Define network interface var for lwIP
 struct netif    tseNetif;
 
 
@@ -121,6 +127,10 @@ TASK(USRV_TASK)
     //ATK2 debug purposes
     TaskType    tskid;
     GetTaskID(&tskid);
+
+    /*
+     *  lwIP code start
+     */
 
     static struct ip_addr   ip_zero = { 0 };
     void httpd_init(void);

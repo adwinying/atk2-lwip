@@ -19,11 +19,17 @@ Ecuc:
         OsStartupHook: true
       OsHookStack:
         OsHookStackSize: 0x200
+
+#
+#  割り込み
+#
+
     alt_avalon_sgdma_rx_irq:
       DefinitionRef: OsIsr
       OsIsrInterruptNumber: 12
       OsIsrInterruptPriority: 3
       OsIsrCategory: CATEGORY_2
+      
     alt_avalon_sgdma_tx_irq:
       DefinitionRef: OsIsr
       OsIsrInterruptNumber: 13
@@ -40,22 +46,9 @@ Ecuc:
       OsTaskPriority: (TMAX_TPRI - USRV_MAIN_PRIORITY)
       OsTaskStackSize: USRV_STACK_SIZE
       OsTaskSchedule: FULL
-#      OsTaskResourceRef:
-#        - /Ecuc/Os/RES_UDP_CEP_LOCK1
-#        - /Ecuc/Os/RES_UDP_CEP
-#        - /Ecuc/Os/RES_IP2STR_BUFF_LOCK
-#      OsTaskEventRef: /Ecuc/Os/EVT_USRV
       OsTaskAutostart:
         OsTaskAppModeRef: /Ecuc/Os/AppMode
-#    EVT_USRV:
-#      DefinitionRef: OsEvent
-#    ALM_USRV:
-#      DefinitionRef: OsAlarm
-#      OsAlarmCounterRef: /Ecuc/Os/MAIN_HW_COUNTER
-#      OsAlarmAction:
-#        OsAlarmSetEvent:
-#          OsAlarmSetEventTaskRef: /Ecuc/Os/USRV_TASK
-#          OsAlarmSetEventRef: /Ecuc/Os/EVT_USRV
+    
     LWIP_ALARM:
       DefinitionRef: OsAlarm
       OsAlarmCounterRef: /Ecuc/Os/MAIN_HW_COUNTER
