@@ -3,7 +3,7 @@
 #
 
 # HAL driver source
-HAL_DIR := $(HAL_DIR):$(APPLDIR)/HAL/src
+HAL_DIR := $(APPLDIR)/HAL/src
 
 # HAL includes
 INCLUDES := $(INCLUDES) -I$(APPLDIR)/HAL/inc 

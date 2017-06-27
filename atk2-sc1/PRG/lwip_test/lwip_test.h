@@ -9,7 +9,7 @@
  *  UDP ECHO サーバ
  */
 
-#define USRV_STACK_SIZE		8192		/* UDP ECHO サーバタスクのスタックサイズ		*/
+#define USRV_STACK_SIZE		4096		/* UDP ECHO サーバタスクのスタックサイズ		*/
 #define USRV_MAIN_PRIORITY	5		/* UDP ECHO サーバタスクの優先度			*/
 
 #endif /* TOPPERS_TEST_HISTOGRAM_H */
