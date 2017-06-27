@@ -243,6 +243,8 @@ SUPPORT_UDP = true
 #
 #  システムサービスの Makefile のインクルード
 #
+include $(APPLDIR)/HAL/Makefile.hal
+include $(APPLDIR)/drivers/Makefile.altera
 include $(APPLDIR)/lwip/Makefile.lwip
 
 
