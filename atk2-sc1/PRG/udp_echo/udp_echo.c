@@ -19,7 +19,7 @@
 #include "target_hw_counter.h"
 #include "target_test.h"
 
-#include "lwip_test.h"
+#include "udp_echo.h"
 
 
 
@@ -68,8 +68,14 @@
 struct ip_addr lwipStaticIp;
 #endif
 
-// Define BUILD_HTTPD to 1 to build the httpserver_raw contrib example
-#define BUILD_HTTPD 1
+/*
+ * Enable/Disable lwIP sample programs 
+ */
+
+// httpserver_raw contrib example
+#define BUILD_HTTPD 0
+// udp_echo sample program
+#define BUILD_UDPECHO 1
 
 // Alarm varibles
 static uint32   lwip250mStimer;
@@ -134,6 +140,7 @@ TASK(USRV_TASK)
 
     static struct ip_addr   ip_zero = { 0 };
     void httpd_init(void);
+    void udpecho_init(void);
 
     syslog(LOG_INFO, "lwIP Running...\n");
     
@@ -187,8 +194,12 @@ TASK(USRV_TASK)
 
 #if BUILD_HTTPD
     httpd_init();
-    syslog(LOG_INFO, "Ready to receive data.\n");
 #endif
+#if BUILD_UDPECHO
+    udpecho_init();
+#endif
+
+    syslog(LOG_INFO, "Ready to receive data.\n");
     //  This is the main loop for lwIP - other processing can be done by calling application functions.
     for(;;)
         {

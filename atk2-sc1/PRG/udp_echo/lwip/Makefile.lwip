@@ -1,0 +1,98 @@
+# 
+# lwIP Makefile
+# 
+
+#lwIP root dir
+LWIP_ROOT = $(APPLDIR)/lwip
+
+#lwIP includes
+INCLUDES := $(INCLUDES) -I$(APPLDIR)/lwip/src/include 
+INCLUDES := $(INCLUDES) -I$(APPLDIR)/lwip/src/include/ipv4 
+
+
+LWIP_DIR = $(LWIP_ROOT)/src/api:
+LWIP_COBJS += api_lib.o
+LWIP_COBJS += api_msg.o
+LWIP_COBJS += err.o
+LWIP_COBJS += netbuf.o
+LWIP_COBJS += netdb.o
+LWIP_COBJS += netifapi.o
+LWIP_COBJS += sockets.o
+LWIP_COBJS += tcpip.o
+
+
+LWIP_DIR += $(LWIP_ROOT)/src/core:
+LWIP_COBJS += mem.o
+LWIP_COBJS += memp.o
+LWIP_COBJS += netif.o
+LWIP_COBJS += pbuf.o
+LWIP_COBJS += raw.o
+LWIP_COBJS += stats.o
+LWIP_COBJS += sys.o
+LWIP_COBJS += tcp.o
+LWIP_COBJS += tcp_in.o
+LWIP_COBJS += tcp_out.o
+LWIP_COBJS += udp.o
+LWIP_COBJS += dns.o
+LWIP_COBJS += init.o
+LWIP_COBJS += dhcp.o
+LWIP_COBJS += def.o
+LWIP_COBJS += timers.o
+
+
+LWIP_DIR += $(LWIP_ROOT)/src/core/snmp:
+LWIP_COBJS += asn1_dec.o
+LWIP_COBJS += asn1_enc.o
+LWIP_COBJS += mib2.o
+LWIP_COBJS += mib_structs.o
+LWIP_COBJS += msg_in.o
+LWIP_COBJS += msg_out.o
+
+
+LWIP_DIR += $(LWIP_ROOT)/src/core/ipv4:
+LWIP_COBJS += autoip.o
+LWIP_COBJS += icmp.o
+LWIP_COBJS += igmp.o
+LWIP_COBJS += inet.o
+LWIP_COBJS += inet_chksum.o
+LWIP_COBJS += ip.o
+LWIP_COBJS += ip_addr.o
+LWIP_COBJS += ip_frag.o
+
+
+LWIP_DIR += $(LWIP_ROOT)/src/netif:
+LWIP_COBJS += slipif.o
+LWIP_COBJS += etharp.o
+LWIP_COBJS += ethernetif.o
+
+
+LWIP_DIR += $(LWIP_ROOT)/src/netif/ppp:
+LWIP_COBJS += auth.o
+LWIP_COBJS += fsm.o
+LWIP_COBJS += ipcp.o
+LWIP_COBJS += lcp.o
+LWIP_COBJS += magic.o
+LWIP_COBJS += ppp.o
+LWIP_COBJS += vj.o
+LWIP_COBJS += chap.o
+LWIP_COBJS += chpms.o
+LWIP_COBJS += md5.o
+LWIP_COBJS += pap.o
+LWIP_COBJS += ppp_oe.o
+LWIP_COBJS += randm.o
+
+
+LWIP_DIR += $(APPLDIR)/drivers
+LWIP_COBJS += alteraTseEthernetif.o
+LWIP_COBJS += fs.o
+LWIP_COBJS += fsdata.o
+LWIP_COBJS += httpd.o
+LWIP_COBJS += lwip_tse_mac.o
+#LWIP_COBJS += tse_my_system.o
+
+
+#Add LWIP_DIR to APPL_DIR
+APPL_DIR := $(LWIP_DIR):$(APPL_DIR)
+#Add lwip obj to list of obj
+APPL_COBJS := $(LWIP_COBJS) $(APPL_COBJS)
+
