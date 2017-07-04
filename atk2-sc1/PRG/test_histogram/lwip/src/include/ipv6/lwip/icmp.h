@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001-2003 Swedish Institute of Computer Science.
+ * Copyright (c) 2001-2004 Swedish Institute of Computer Science.
  * All rights reserved. 
  * 
  * Redistribution and use in source and binary forms, with or without modification, 
@@ -29,43 +29,72 @@
  * Author: Adam Dunkels <adam@sics.se>
  *
  */
+#ifndef __LWIP_ICMP_H__
+#define __LWIP_ICMP_H__
 
-#include "lwip/udp.h"
-#include "lwip/debug.h"
+#include "lwip/opt.h"
+
+#if LWIP_ICMP /* don't build if not configured for use in lwipopts.h */
+
+#include "lwip/pbuf.h"
+#include "lwip/netif.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define ICMP6_DUR  1
+#define ICMP6_TE   3
+#define ICMP6_ECHO 128    /* echo */
+#define ICMP6_ER   129      /* echo reply */
 
 
-void udpecho_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p, struct 
-ip_addr *addr, u16_t port)
-{
-    if (p != NULL) {
-        /* send received packet back to sender */
-        udp_sendto(pcb, p, addr, port);
-        /* free the pbuf */
-        pbuf_free(p);
-    }
+enum icmp_dur_type {
+  ICMP_DUR_NET = 0,    /* net unreachable */
+  ICMP_DUR_HOST = 1,   /* host unreachable */
+  ICMP_DUR_PROTO = 2,  /* protocol unreachable */
+  ICMP_DUR_PORT = 3,   /* port unreachable */
+  ICMP_DUR_FRAG = 4,   /* fragmentation needed and DF set */
+  ICMP_DUR_SR = 5      /* source route failed */
+};
+
+enum icmp_te_type {
+  ICMP_TE_TTL = 0,     /* time to live exceeded in transit */
+  ICMP_TE_FRAG = 1     /* fragment reassembly time exceeded */
+};
+
+void icmp_input(struct pbuf *p, struct netif *inp);
+
+void icmp_dest_unreach(struct pbuf *p, enum icmp_dur_type t);
+void icmp_time_exceeded(struct pbuf *p, enum icmp_te_type t);
+
+struct icmp_echo_hdr {
+  u8_t type;
+  u8_t icode;
+  u16_t chksum;
+  u16_t id;
+  u16_t seqno;
+};
+
+struct icmp_dur_hdr {
+  u8_t type;
+  u8_t icode;
+  u16_t chksum;
+  u32_t unused;
+};
+
+struct icmp_te_hdr {
+  u8_t type;
+  u8_t icode;
+  u16_t chksum;
+  u32_t unused;
+};
+
+#ifdef __cplusplus
 }
+#endif
 
+#endif /* LWIP_ICMP */
 
-void udpecho_init(void)
-{
-    struct udp_pcb * pcb;
-    syslog(LOG_INFO, "Initializing udpecho_init()...");
+#endif /* __LWIP_ICMP_H__ */
 
-    /* get new pcb */
-    pcb = udp_new();
-    if (pcb == NULL) {
-        syslog(LOG_INFO, "udp_new failed!\n");
-        return;
-    }
-
-    /* bind to any IP address on port 7 */
-    if (udp_bind(pcb, IP_ADDR_ANY, 7) != ERR_OK) {
-        syslog(LOG_INFO, "udp_bind failed!\n");
-        return;
-    }
-
-    /* set udp_echo_recv() as callback function
-       for received packets */
-    syslog(LOG_INFO, "Ready to accept UDP packets on port 7\n");
-    udp_recv(pcb, udpecho_recv, NULL);
-}

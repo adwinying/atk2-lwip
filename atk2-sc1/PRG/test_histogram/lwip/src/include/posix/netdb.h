@@ -1,7 +1,9 @@
+/**
+ * @file
+ * This file is a posix wrapper for lwip/netdb.h.
+ */
+
 /*
- * Copyright (c) 2001-2003 Swedish Institute of Computer Science.
- * All rights reserved. 
- * 
  * Redistribution and use in source and binary forms, with or without modification, 
  * are permitted provided that the following conditions are met:
  *
@@ -25,47 +27,7 @@
  * OF SUCH DAMAGE.
  *
  * This file is part of the lwIP TCP/IP stack.
- * 
- * Author: Adam Dunkels <adam@sics.se>
  *
  */
 
-#include "lwip/udp.h"
-#include "lwip/debug.h"
-
-
-void udpecho_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p, struct 
-ip_addr *addr, u16_t port)
-{
-    if (p != NULL) {
-        /* send received packet back to sender */
-        udp_sendto(pcb, p, addr, port);
-        /* free the pbuf */
-        pbuf_free(p);
-    }
-}
-
-
-void udpecho_init(void)
-{
-    struct udp_pcb * pcb;
-    syslog(LOG_INFO, "Initializing udpecho_init()...");
-
-    /* get new pcb */
-    pcb = udp_new();
-    if (pcb == NULL) {
-        syslog(LOG_INFO, "udp_new failed!\n");
-        return;
-    }
-
-    /* bind to any IP address on port 7 */
-    if (udp_bind(pcb, IP_ADDR_ANY, 7) != ERR_OK) {
-        syslog(LOG_INFO, "udp_bind failed!\n");
-        return;
-    }
-
-    /* set udp_echo_recv() as callback function
-       for received packets */
-    syslog(LOG_INFO, "Ready to accept UDP packets on port 7\n");
-    udp_recv(pcb, udpecho_recv, NULL);
-}
+#include "lwip/netdb.h"

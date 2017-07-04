@@ -1,5 +1,11 @@
+/**
+ * @file
+ * Error Management module
+ *
+ */
+
 /*
- * Copyright (c) 2001-2003 Swedish Institute of Computer Science.
+ * Copyright (c) 2001-2004 Swedish Institute of Computer Science.
  * All rights reserved. 
  * 
  * Redistribution and use in source and binary forms, with or without modification, 
@@ -30,42 +36,40 @@
  *
  */
 
-#include "lwip/udp.h"
-#include "lwip/debug.h"
+#include "lwip/err.h"
 
+#ifdef LWIP_DEBUG
 
-void udpecho_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p, struct 
-ip_addr *addr, u16_t port)
+static const char *err_strerr[] = {
+           "Ok.",                    /* ERR_OK          0  */
+           "Out of memory error.",   /* ERR_MEM        -1  */
+           "Buffer error.",          /* ERR_BUF        -2  */
+           "Timeout.",               /* ERR_TIMEOUT    -3  */
+           "Routing problem.",       /* ERR_RTE        -4  */
+           "Operation in progress.", /* ERR_INPROGRESS -5  */
+           "Illegal value.",         /* ERR_VAL        -6  */
+           "Operation would block.", /* ERR_WOULDBLOCK -7  */
+           "Address in use.",        /* ERR_USE        -8  */
+           "Already connected.",     /* ERR_ISCONN     -9  */
+           "Connection aborted.",    /* ERR_ABRT       -10 */
+           "Connection reset.",      /* ERR_RST        -11 */
+           "Connection closed.",     /* ERR_CLSD       -12 */
+           "Not connected.",         /* ERR_CONN       -13 */
+           "Illegal argument.",      /* ERR_ARG        -14 */
+           "Low-level netif error.", /* ERR_IF         -15 */
+};
+
+/**
+ * Convert an lwip internal error to a string representation.
+ *
+ * @param err an lwip internal err_t
+ * @return a string representation for err
+ */
+const char *
+lwip_strerr(err_t err)
 {
-    if (p != NULL) {
-        /* send received packet back to sender */
-        udp_sendto(pcb, p, addr, port);
-        /* free the pbuf */
-        pbuf_free(p);
-    }
+  return err_strerr[-err];
+
 }
 
-
-void udpecho_init(void)
-{
-    struct udp_pcb * pcb;
-    syslog(LOG_INFO, "Initializing udpecho_init()...");
-
-    /* get new pcb */
-    pcb = udp_new();
-    if (pcb == NULL) {
-        syslog(LOG_INFO, "udp_new failed!\n");
-        return;
-    }
-
-    /* bind to any IP address on port 7 */
-    if (udp_bind(pcb, IP_ADDR_ANY, 7) != ERR_OK) {
-        syslog(LOG_INFO, "udp_bind failed!\n");
-        return;
-    }
-
-    /* set udp_echo_recv() as callback function
-       for received packets */
-    syslog(LOG_INFO, "Ready to accept UDP packets on port 7\n");
-    udp_recv(pcb, udpecho_recv, NULL);
-}
+#endif /* LWIP_DEBUG */

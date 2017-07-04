@@ -29,43 +29,9 @@
  * Author: Adam Dunkels <adam@sics.se>
  *
  */
+#ifndef __UDPECHO_H__
+#define __UDPECHO_H__
 
-#include "lwip/udp.h"
-#include "lwip/debug.h"
+void udpecho_init(void);
 
-
-void udpecho_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p, struct 
-ip_addr *addr, u16_t port)
-{
-    if (p != NULL) {
-        /* send received packet back to sender */
-        udp_sendto(pcb, p, addr, port);
-        /* free the pbuf */
-        pbuf_free(p);
-    }
-}
-
-
-void udpecho_init(void)
-{
-    struct udp_pcb * pcb;
-    syslog(LOG_INFO, "Initializing udpecho_init()...");
-
-    /* get new pcb */
-    pcb = udp_new();
-    if (pcb == NULL) {
-        syslog(LOG_INFO, "udp_new failed!\n");
-        return;
-    }
-
-    /* bind to any IP address on port 7 */
-    if (udp_bind(pcb, IP_ADDR_ANY, 7) != ERR_OK) {
-        syslog(LOG_INFO, "udp_bind failed!\n");
-        return;
-    }
-
-    /* set udp_echo_recv() as callback function
-       for received packets */
-    syslog(LOG_INFO, "Ready to accept UDP packets on port 7\n");
-    udp_recv(pcb, udpecho_recv, NULL);
-}
+#endif /* __UDPECHO_H__ */

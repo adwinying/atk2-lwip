@@ -1,0 +1,92 @@
+#
+# HAL makefile
+#
+
+# HAL driver source
+HAL_DIR := $(APPLDIR)/HAL/src
+
+# HAL includes
+INCLUDES := $(INCLUDES) -I$(APPLDIR)/HAL/inc 
+
+# altera_nios2_qsys_hal_driver sources 
+#HAL_COBJS += altera_nios2_qsys_irq.o
+HAL_COBJS += alt_usleep.o
+HAL_COBJS += alt_busy_sleep.o
+#HAL_COBJS += alt_irq_vars.o
+#HAL_COBJS += alt_icache_flush.o
+#HAL_COBJS += alt_icache_flush_all.o
+HAL_COBJS += alt_dcache_flush.o
+#HAL_COBJS += alt_dcache_flush_all.o
+#HAL_COBJS += alt_dcache_flush_no_writeback.o
+#HAL_COBJS += alt_ecc_fatal_exception.o
+#HAL_COBJS += alt_instruction_exception_entry.o
+#HAL_COBJS += alt_irq_register.o
+#HAL_COBJS += alt_iic.o
+#HAL_COBJS += alt_remap_cached.o
+HAL_COBJS += alt_remap_uncached.o
+#HAL_COBJS += alt_uncached_free.o
+HAL_COBJS += alt_uncached_malloc.o
+HAL_COBJS += alt_do_ctors.o
+HAL_COBJS += alt_do_dtors.o
+#HAL_COBJS += alt_gmon.o
+
+# hal sources
+#HAL_COBJS += alt_alarm_start.o
+#HAL_COBJS += alt_close.o
+HAL_COBJS += alt_dev.o
+HAL_COBJS += alt_dev_llist_insert.o
+#HAL_COBJS += alt_dma_rxchan_open.o
+#HAL_COBJS += alt_dma_txchan_open.o
+#HAL_COBJS += alt_environ.o
+#HAL_COBJS += alt_env_lock.o
+HAL_COBJS += alt_errno.o
+#HAL_COBJS += alt_execve.o
+#HAL_COBJS += alt_exit.o
+#HAL_COBJS += alt_fcntl.o
+#HAL_COBJS += alt_fd_lock.o
+#HAL_COBJS += alt_fd_unlock.o
+HAL_COBJS += alt_find_dev.o
+#HAL_COBJS += alt_find_file.o
+#HAL_COBJS += alt_flash_dev.o
+#HAL_COBJS += alt_fork.o
+#HAL_COBJS += alt_fs_reg.o
+#HAL_COBJS += alt_fstat.o
+#HAL_COBJS += alt_get_fd.o
+#HAL_COBJS += alt_getchar.o
+#HAL_COBJS += alt_getpid.o
+#HAL_COBJS += alt_gettod.o
+#HAL_COBJS += alt_iic_isr_register.o
+#HAL_COBJS += alt_instruction_exception_register.o
+#HAL_COBJS += alt_ioctl.o
+HAL_COBJS += alt_io_redirect.o
+#HAL_COBJS += alt_irq_handler.o
+#HAL_COBJS += alt_isatty.o
+#HAL_COBJS += alt_kill.o
+#HAL_COBJS += alt_link.o
+#HAL_COBJS += alt_load.o
+#HAL_COBJS += alt_log_printf.o
+#HAL_COBJS += alt_lseek.o
+#HAL_COBJS += alt_main.o
+#KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) crt0.o
+HAL_COBJS += alt_malloc_lock.o
+#HAL_COBJS += alt_open.o
+#HAL_COBJS += alt_printf.o
+#HAL_COBJS += alt_putchar.o
+#HAL_COBJS += alt_putstr.o
+#HAL_COBJS += alt_read.o
+HAL_COBJS += alt_release_fd.o
+#HAL_COBJS += alt_rename.o
+#HAL_COBJS += alt_sbrk.o
+#HAL_COBJS += alt_settod.o
+#HAL_COBJS += alt_stat.o
+HAL_COBJS += alt_sys_init.o
+#HAL_COBJS += alt_tick.o
+#HAL_COBJS += alt_times.o
+#HAL_COBJS += alt_unlink.o
+#HAL_COBJS += alt_wait.o
+#HAL_COBJS += alt_write.o
+
+#Add HAL_DIR to APPL_DIR
+APPL_DIR := $(HAL_DIR):$(APPL_DIR)
+#Add alt obj to list of obj
+APPL_COBJS := $(HAL_COBJS) $(APPL_COBJS)

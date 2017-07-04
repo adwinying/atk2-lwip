@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001-2003 Swedish Institute of Computer Science.
+ * Copyright (c) 2001-2004 Swedish Institute of Computer Science.
  * All rights reserved. 
  * 
  * Redistribution and use in source and binary forms, with or without modification, 
@@ -29,43 +29,40 @@
  * Author: Adam Dunkels <adam@sics.se>
  *
  */
+#ifndef __LWIP_INET_H__
+#define __LWIP_INET_H__
 
-#include "lwip/udp.h"
-#include "lwip/debug.h"
+#include "lwip/opt.h"
+#include "lwip/pbuf.h"
+#include "lwip/ip_addr.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void udpecho_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p, struct 
-ip_addr *addr, u16_t port)
-{
-    if (p != NULL) {
-        /* send received packet back to sender */
-        udp_sendto(pcb, p, addr, port);
-        /* free the pbuf */
-        pbuf_free(p);
-    }
+u16_t inet_chksum(void *data, u16_t len);
+u16_t inet_chksum_pbuf(struct pbuf *p);
+u16_t inet_chksum_pseudo(struct pbuf *p,
+       struct ip_addr *src, struct ip_addr *dest,
+       u8_t proto, u32_t proto_len);
+
+u32_t inet_addr(const char *cp);
+s8_t inet_aton(const char *cp, struct in_addr *addr);
+
+#ifndef _MACHINE_ENDIAN_H_
+#ifndef _NETINET_IN_H
+#ifndef _LINUX_BYTEORDER_GENERIC_H
+u16_t htons(u16_t n);
+u16_t ntohs(u16_t n);
+u32_t htonl(u32_t n);
+u32_t ntohl(u32_t n);
+#endif /* _LINUX_BYTEORDER_GENERIC_H */
+#endif /* _NETINET_IN_H */
+#endif /* _MACHINE_ENDIAN_H_ */
+
+#ifdef __cplusplus
 }
+#endif
 
+#endif /* __LWIP_INET_H__ */
 
-void udpecho_init(void)
-{
-    struct udp_pcb * pcb;
-    syslog(LOG_INFO, "Initializing udpecho_init()...");
-
-    /* get new pcb */
-    pcb = udp_new();
-    if (pcb == NULL) {
-        syslog(LOG_INFO, "udp_new failed!\n");
-        return;
-    }
-
-    /* bind to any IP address on port 7 */
-    if (udp_bind(pcb, IP_ADDR_ANY, 7) != ERR_OK) {
-        syslog(LOG_INFO, "udp_bind failed!\n");
-        return;
-    }
-
-    /* set udp_echo_recv() as callback function
-       for received packets */
-    syslog(LOG_INFO, "Ready to accept UDP packets on port 7\n");
-    udp_recv(pcb, udpecho_recv, NULL);
-}

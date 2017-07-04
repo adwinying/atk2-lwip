@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001-2003 Swedish Institute of Computer Science.
+ * Copyright (c) 2001-2004 Swedish Institute of Computer Science.
  * All rights reserved. 
  * 
  * Redistribution and use in source and binary forms, with or without modification, 
@@ -29,43 +29,44 @@
  * Author: Adam Dunkels <adam@sics.se>
  *
  */
+#ifndef __LWIP_INIT_H__
+#define __LWIP_INIT_H__
 
-#include "lwip/udp.h"
-#include "lwip/debug.h"
+#include "lwip/opt.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void udpecho_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p, struct 
-ip_addr *addr, u16_t port)
-{
-    if (p != NULL) {
-        /* send received packet back to sender */
-        udp_sendto(pcb, p, addr, port);
-        /* free the pbuf */
-        pbuf_free(p);
-    }
+/** X.x.x: Major version of the stack */
+#define LWIP_VERSION_MAJOR      1U
+/** x.X.x: Minor version of the stack */
+#define LWIP_VERSION_MINOR      4U
+/** x.x.X: Revision of the stack */
+#define LWIP_VERSION_REVISION   1U
+/** For release candidates, this is set to 1..254
+  * For official releases, this is set to 255 (LWIP_RC_RELEASE)
+  * For development versions (CVS), this is set to 0 (LWIP_RC_DEVELOPMENT) */
+#define LWIP_VERSION_RC         255U
+
+/** LWIP_VERSION_RC is set to LWIP_RC_RELEASE for official releases */
+#define LWIP_RC_RELEASE         255U
+/** LWIP_VERSION_RC is set to LWIP_RC_DEVELOPMENT for CVS versions */
+#define LWIP_RC_DEVELOPMENT     0U
+
+#define LWIP_VERSION_IS_RELEASE     (LWIP_VERSION_RC == LWIP_RC_RELEASE)
+#define LWIP_VERSION_IS_DEVELOPMENT (LWIP_VERSION_RC == LWIP_RC_DEVELOPMENT)
+#define LWIP_VERSION_IS_RC          ((LWIP_VERSION_RC != LWIP_RC_RELEASE) && (LWIP_VERSION_RC != LWIP_RC_DEVELOPMENT))
+
+/** Provides the version of the stack */
+#define LWIP_VERSION   (LWIP_VERSION_MAJOR << 24   | LWIP_VERSION_MINOR << 16 | \
+                        LWIP_VERSION_REVISION << 8 | LWIP_VERSION_RC)
+
+/* Modules initialization */
+void lwip_init(void);
+
+#ifdef __cplusplus
 }
+#endif
 
-
-void udpecho_init(void)
-{
-    struct udp_pcb * pcb;
-    syslog(LOG_INFO, "Initializing udpecho_init()...");
-
-    /* get new pcb */
-    pcb = udp_new();
-    if (pcb == NULL) {
-        syslog(LOG_INFO, "udp_new failed!\n");
-        return;
-    }
-
-    /* bind to any IP address on port 7 */
-    if (udp_bind(pcb, IP_ADDR_ANY, 7) != ERR_OK) {
-        syslog(LOG_INFO, "udp_bind failed!\n");
-        return;
-    }
-
-    /* set udp_echo_recv() as callback function
-       for received packets */
-    syslog(LOG_INFO, "Ready to accept UDP packets on port 7\n");
-    udp_recv(pcb, udpecho_recv, NULL);
-}
+#endif /* __LWIP_INIT_H__ */

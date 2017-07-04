@@ -32,24 +32,66 @@
 
 #include "lwip/udp.h"
 #include "lwip/debug.h"
+#include "histogram.h"
+#include "test_histogram.h"
+
+/*
+ * Histogram variables
+ */
+
+#if MEASURE_HISTOGRAM
+uint32          histarea[1001] = { 0 };
+ObjectIDType    histid = 1;
+boolean         measuring_flg = FALSE;
+boolean         printed_flg = FALSE;
+#endif
 
 
 void udpecho_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p, struct 
 ip_addr *addr, u16_t port)
 {
+//#if MEASURE_HISTOGRAM
+#if 0
+    if (histid <= TNUM_HIST && measuring_flg == FALSE) {
+        //syslog(LOG_INFO, "[histid: %d] Histogram measuring starting...", histid);
+        begin_measure(histid);
+        measuring_flg = TRUE;
+    }
+#endif
+
     if (p != NULL) {
         /* send received packet back to sender */
         udp_sendto(pcb, p, addr, port);
         /* free the pbuf */
         pbuf_free(p);
     }
+
+#if MEASURE_HISTOGRAM
+    // End histogram measure
+    if (histid <= TNUM_HIST && measuring_flg == TRUE) {
+        //syslog(LOG_INFO, "[histid: %d] Histogram measuring ending...", histid);
+        if (end_measure(histid++)) {
+            //syslog(LOG_INFO, "%d OK", histid);
+        } else {
+            //syslog(LOG_INFO, "%d ERR", histid);
+        }
+        measuring_flg = FALSE;
+    }
+
+    // Print histogram results
+    if (histid > TNUM_HIST && printed_flg == FALSE) {
+        syslog(LOG_INFO, "[histid: %d] Printing...", histid);
+        printed_flg = TRUE;
+        print_hist(TNUM_HIST);
+    }
+#endif
 }
 
 
 void udpecho_init(void)
 {
     struct udp_pcb * pcb;
-    syslog(LOG_INFO, "Initializing udpecho_init()...");
+    syslog(LOG_INFO, "Initializing udp_init()...");
 
     /* get new pcb */
     pcb = udp_new();
@@ -66,6 +108,6 @@ void udpecho_init(void)
 
     /* set udp_echo_recv() as callback function
        for received packets */
-    syslog(LOG_INFO, "Ready to accept UDP packets on port 7\n");
+    syslog(LOG_INFO, "Ready to accept UDP packets on port 7");
     udp_recv(pcb, udpecho_recv, NULL);
 }
