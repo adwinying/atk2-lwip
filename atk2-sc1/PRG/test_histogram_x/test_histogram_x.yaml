@@ -1,0 +1,58 @@
+Ecuc:
+  Os:
+    OsInclude:
+      OsIncludeFileName: test_histogram_x.h
+    AppMode:
+      DefinitionRef: OsAppMode
+    OsOS:
+      OsStackMonitoring: true
+      OsUseGetServiceId: true
+      OsUseParameterAccess: true
+      OsScalabilityClass: SC1
+      OsStatus: EXTENDED
+      OsHooks:
+        OsErrorHook: true
+        OsPostTaskHook: true
+        OsPreTaskHook: true
+        OsProtectionHook: true
+        OsShutdownHook: true
+        OsStartupHook: true
+      OsHookStack:
+        OsHookStackSize: 0x200
+
+#
+#  割り込み
+#
+
+    alt_avalon_sgdma_rx_irq:
+      DefinitionRef: OsIsr
+      OsIsrInterruptNumber: 12
+      OsIsrInterruptPriority: 3
+      OsIsrCategory: CATEGORY_2
+      
+    alt_avalon_sgdma_tx_irq:
+      DefinitionRef: OsIsr
+      OsIsrInterruptNumber: 13
+      OsIsrInterruptPriority: 3
+      OsIsrCategory: CATEGORY_2
+
+#
+#  タスク
+#
+
+    USRV_TASK:
+      DefinitionRef: OsTask
+      OsTaskActivation: 1U
+      OsTaskPriority: (TMAX_TPRI - USRV_MAIN_PRIORITY)
+      OsTaskStackSize: USRV_STACK_SIZE
+      OsTaskSchedule: FULL
+      OsTaskAutostart:
+        OsTaskAppModeRef: /Ecuc/Os/AppMode
+    
+    LWIP_ALARM:
+      DefinitionRef: OsAlarm
+      OsAlarmCounterRef: /Ecuc/Os/MAIN_HW_COUNTER
+      OsAlarmAction:
+        OsAlarmCallback:
+          OsAlarmCallbackName: LWIP_ALARM_CALLBACK
+

@@ -1,0 +1,1731 @@
+/*
+ * system.h - SOPC Builder system and BSP software package information
+ *
+ * Machine generated for CPU 'cpu' in SOPC Builder design 'DE2_115_SOPC'
+ * SOPC Builder design path: C:/cygwin/home/adwinying/FreeLwIP-Nios-II/FPGA/DE2_115_SOPC.sopcinfo
+ *
+ * Generated: Mon Apr 24 18:15:35 JST 2017
+ */
+
+/*
+ * DO NOT MODIFY THIS FILE
+ *
+ * Changing this file will have subtle consequences
+ * which will almost certainly lead to a nonfunctioning
+ * system. If you do modify this file, be aware that your
+ * changes will be overwritten and lost when this file
+ * is generated again.
+ *
+ * DO NOT MODIFY THIS FILE
+ */
+
+/*
+ * License Agreement
+ *
+ * Copyright (c) 2008
+ * Altera Corporation, San Jose, California, USA.
+ * All rights reserved.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ *
+ * This agreement shall be governed in all respects by the laws of the State
+ * of California and by the laws of the United States of America.
+ */
+
+#ifndef __SYSTEM_H_
+#define __SYSTEM_H_
+
+/* Include definitions from linker script generator */
+#include "linker.h"
+
+
+/*
+ * CPU configuration
+ *
+ */
+
+#define ALT_CPU_ARCHITECTURE "altera_nios2_qsys"
+#define ALT_CPU_BIG_ENDIAN 0
+#define ALT_CPU_BREAK_ADDR 0x02000020
+#define ALT_CPU_CPU_FREQ 100000000u
+#define ALT_CPU_CPU_ID_SIZE 1
+#define ALT_CPU_CPU_ID_VALUE 0x00000000
+#define ALT_CPU_CPU_IMPLEMENTATION "fast"
+#define ALT_CPU_DATA_ADDR_WIDTH 0x1c
+#define ALT_CPU_DCACHE_LINE_SIZE 0
+#define ALT_CPU_DCACHE_LINE_SIZE_LOG2 0
+#define ALT_CPU_DCACHE_SIZE 0
+#define ALT_CPU_EIC_PRESENT
+#define ALT_CPU_EXCEPTION_ADDR 0x00000020
+#define ALT_CPU_FLUSHDA_SUPPORTED
+#define ALT_CPU_FREQ 100000000
+#define ALT_CPU_HARDWARE_DIVIDE_PRESENT 1
+#define ALT_CPU_HARDWARE_MULTIPLY_PRESENT 1
+#define ALT_CPU_HARDWARE_MULX_PRESENT 0
+#define ALT_CPU_HAS_DEBUG_CORE 1
+#define ALT_CPU_HAS_DEBUG_STUB
+#define ALT_CPU_HAS_DIVISION_ERROR_EXCEPTION
+#define ALT_CPU_HAS_EXTRA_EXCEPTION_INFO
+#define ALT_CPU_HAS_ILLEGAL_INSTRUCTION_EXCEPTION
+#define ALT_CPU_HAS_ILLEGAL_MEMORY_ACCESS_EXCEPTION
+#define ALT_CPU_HAS_JMPI_INSTRUCTION
+#define ALT_CPU_ICACHE_LINE_SIZE 32
+#define ALT_CPU_ICACHE_LINE_SIZE_LOG2 5
+#define ALT_CPU_ICACHE_SIZE 4096
+#define ALT_CPU_INST_ADDR_WIDTH 0x1c
+#define ALT_CPU_MPU_MIN_DATA_REGION_SIZE 64
+#define ALT_CPU_MPU_MIN_DATA_REGION_SIZE_LOG2 6
+#define ALT_CPU_MPU_MIN_INST_REGION_SIZE 64
+#define ALT_CPU_MPU_MIN_INST_REGION_SIZE_LOG2 6
+#define ALT_CPU_MPU_NUM_DATA_REGIONS 16
+#define ALT_CPU_MPU_NUM_INST_REGIONS 16
+#define ALT_CPU_MPU_PRESENT
+#define ALT_CPU_MPU_REGION_USES_LIMIT
+#define ALT_CPU_NAME "cpu"
+#define ALT_CPU_NUM_OF_SHADOW_REG_SETS 1
+#define ALT_CPU_RESET_ADDR 0x05000000
+
+
+/*
+ * CPU configuration (with legacy prefix - don't use these anymore)
+ *
+ */
+
+#define NIOS2_BIG_ENDIAN 0
+#define NIOS2_BREAK_ADDR 0x02000020
+#define NIOS2_CPU_FREQ 100000000u
+#define NIOS2_CPU_ID_SIZE 1
+#define NIOS2_CPU_ID_VALUE 0x00000000
+#define NIOS2_CPU_IMPLEMENTATION "fast"
+#define NIOS2_DATA_ADDR_WIDTH 0x1c
+//#define NIOS2_DCACHE_LINE_SIZE 0
+#define NIOS2_DCACHE_LINE_SIZE_LOG2 0
+//#define NIOS2_DCACHE_SIZE 0
+#define NIOS2_EIC_PRESENT
+#define NIOS2_EXCEPTION_ADDR 0x00000020
+#define NIOS2_FLUSHDA_SUPPORTED
+#define NIOS2_HARDWARE_DIVIDE_PRESENT 1
+#define NIOS2_HARDWARE_MULTIPLY_PRESENT 1
+#define NIOS2_HARDWARE_MULX_PRESENT 0
+#define NIOS2_HAS_DEBUG_CORE 1
+#define NIOS2_HAS_DEBUG_STUB
+#define NIOS2_HAS_DIVISION_ERROR_EXCEPTION
+#define NIOS2_HAS_EXTRA_EXCEPTION_INFO
+#define NIOS2_HAS_ILLEGAL_INSTRUCTION_EXCEPTION
+#define NIOS2_HAS_ILLEGAL_MEMORY_ACCESS_EXCEPTION
+#define NIOS2_HAS_JMPI_INSTRUCTION
+//#define NIOS2_ICACHE_LINE_SIZE 32
+#define NIOS2_ICACHE_LINE_SIZE_LOG2 5
+//#define NIOS2_ICACHE_SIZE 4096
+#define NIOS2_INST_ADDR_WIDTH 0x1c
+#define NIOS2_MPU_MIN_DATA_REGION_SIZE 64
+#define NIOS2_MPU_MIN_DATA_REGION_SIZE_LOG2 6
+#define NIOS2_MPU_MIN_INST_REGION_SIZE 64
+#define NIOS2_MPU_MIN_INST_REGION_SIZE_LOG2 6
+#define NIOS2_MPU_NUM_DATA_REGIONS 16
+#define NIOS2_MPU_NUM_INST_REGIONS 16
+#define NIOS2_MPU_PRESENT
+#define NIOS2_MPU_REGION_USES_LIMIT
+#define NIOS2_NUM_OF_SHADOW_REG_SETS 1
+#define NIOS2_RESET_ADDR 0x05000000
+
+
+/*
+ * Define for each module class mastered by the CPU
+ *
+ */
+
+//#define __ALTERA_AVALON_JTAG_UART
+//#define __ALTERA_AVALON_LCD_16207
+//#define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
+//#define __ALTERA_AVALON_ONCHIP_MEMORY2
+//#define __ALTERA_AVALON_PIO
+#define __ALTERA_AVALON_SGDMA
+//#define __ALTERA_AVALON_SYSID_QSYS
+//#define __ALTERA_AVALON_TIMER
+//#define __ALTERA_AVALON_UART
+#define __ALTERA_ETH_TSE
+//#define __ALTERA_GENERIC_TRISTATE_CONTROLLER
+//#define __ALTERA_NIOS2_QSYS
+//#define __ALTERA_VIC
+//#define __ALTPLL
+//#define __AUDIO_IF
+//#define __CAN_TOP
+//#define __ISP1362_IF
+//#define __SEG7_IF
+//#define __SYSVER
+//#define __TERASIC_SRAM
+
+
+/*
+ * System configuration
+ *
+ */
+
+#define ALT_DEVICE_FAMILY "Cyclone IV E"
+#define ALT_ENHANCED_INTERRUPT_API_PRESENT
+#define ALT_IRQ_BASE NULL
+#define ALT_LOG_PORT "/dev/null"
+#define ALT_LOG_PORT_BASE 0x0
+#define ALT_LOG_PORT_DEV null
+#define ALT_LOG_PORT_TYPE ""
+#define ALT_NUM_EXTERNAL_INTERRUPT_CONTROLLERS 1
+#define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 0
+#define ALT_NUM_INTERRUPT_CONTROLLERS 1
+#define ALT_STDERR "/dev/jtag_uart"
+#define ALT_STDERR_BASE 0x80001a0
+#define ALT_STDERR_DEV jtag_uart
+#define ALT_STDERR_IS_JTAG_UART
+#define ALT_STDERR_PRESENT
+#define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
+#define ALT_STDIN "/dev/jtag_uart"
+#define ALT_STDIN_BASE 0x80001a0
+#define ALT_STDIN_DEV jtag_uart
+#define ALT_STDIN_IS_JTAG_UART
+#define ALT_STDIN_PRESENT
+#define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
+#define ALT_STDOUT "/dev/jtag_uart"
+#define ALT_STDOUT_BASE 0x80001a0
+#define ALT_STDOUT_DEV jtag_uart
+#define ALT_STDOUT_IS_JTAG_UART
+#define ALT_STDOUT_PRESENT
+#define ALT_STDOUT_TYPE "altera_avalon_jtag_uart"
+#define ALT_SYSTEM_NAME "DE2_115_SOPC"
+
+
+/*
+ * altera_vic_driver configuration
+ *
+
+#define ALTERA_VIC_DRIVER_ENABLE_PREEMPTION_RS_1 0
+#define ALTERA_VIC_DRIVER_ISR_PREEMPTION_ENABLED
+#define ALTERA_VIC_DRIVER_LINKER_SECTION .text
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ0_RIL 63
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ0_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ0_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ10_RIL 53
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ10_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ10_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ11_RIL 52
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ11_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ11_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ12_RIL 51
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ12_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ12_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ13_RIL 50
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ13_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ13_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ14_RIL 49
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ14_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ14_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ15_RIL 48
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ15_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ15_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ16_RIL 47
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ16_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ16_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ17_RIL 46
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ17_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ17_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ18_RIL 45
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ18_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ18_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ19_RIL 44
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ19_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ19_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ1_RIL 62
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ1_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ1_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ20_RIL 43
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ20_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ20_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ21_RIL 42
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ21_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ21_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ22_RIL 41
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ22_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ22_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ23_RIL 40
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ23_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ23_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ24_RIL 39
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ24_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ24_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ25_RIL 38
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ25_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ25_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ26_RIL 37
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ26_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ26_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ27_RIL 36
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ27_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ27_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ28_RIL 35
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ28_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ28_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ29_RIL 34
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ29_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ29_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ2_RIL 61
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ2_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ2_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ30_RIL 33
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ30_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ30_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ31_RIL 32
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ31_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ31_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ3_RIL 60
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ3_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ3_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ4_RIL 59
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ4_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ4_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ5_RIL 58
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ5_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ5_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ6_RIL 57
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ6_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ6_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ7_RIL 56
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ7_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ7_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ8_RIL 55
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ8_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ8_RRS 1
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ9_RIL 54
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ9_RNMI 0
+#define ALTERA_VIC_DRIVER_VIC_0_IRQ9_RRS 1
+#define VIC_0_VEC_SIZE 16
+#define VIC_0_VEC_TBL_BASE VIC_0_VECTOR_TABLE
+ */
+
+
+/*
+ * audio configuration
+ *
+
+#define ALT_MODULE_CLASS_audio AUDIO_IF
+#define AUDIO_BASE 0x8001020
+#define AUDIO_IRQ -1
+#define AUDIO_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define AUDIO_NAME "/dev/audio"
+#define AUDIO_SPAN 32
+#define AUDIO_TYPE "AUDIO_IF"
+ */
+
+
+/*
+ * can_top_0 configuration
+ *
+
+#define ALT_MODULE_CLASS_can_top_0 can_top
+#define CAN_TOP_0_BASE 0x8020000
+#define CAN_TOP_0_IRQ 10
+#define CAN_TOP_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define CAN_TOP_0_NAME "/dev/can_top_0"
+#define CAN_TOP_0_SPAN 1024
+#define CAN_TOP_0_TYPE "can_top"
+ */
+
+
+/*
+ * descriptor_memory configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_descriptor_memory altera_avalon_onchip_memory2
+#define DESCRIPTOR_MEMORY_ALLOW_IN_SYSTEM_MEMORY_CONTENT_EDITOR 0
+#define DESCRIPTOR_MEMORY_ALLOW_MRAM_SIM_CONTENTS_ONLY_FILE 0
+#define DESCRIPTOR_MEMORY_BASE 0x2001000
+#define DESCRIPTOR_MEMORY_CONTENTS_INFO ""
+#define DESCRIPTOR_MEMORY_DUAL_PORT 0
+#define DESCRIPTOR_MEMORY_GUI_RAM_BLOCK_TYPE "AUTO"
+#define DESCRIPTOR_MEMORY_INIT_CONTENTS_FILE "DE2_115_SOPC_descriptor_memory"
+#define DESCRIPTOR_MEMORY_INIT_MEM_CONTENT 1
+#define DESCRIPTOR_MEMORY_INSTANCE_ID "NONE"
+#define DESCRIPTOR_MEMORY_IRQ -1
+#define DESCRIPTOR_MEMORY_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define DESCRIPTOR_MEMORY_NAME "/dev/descriptor_memory"
+#define DESCRIPTOR_MEMORY_NON_DEFAULT_INIT_FILE_ENABLED 0
+#define DESCRIPTOR_MEMORY_RAM_BLOCK_TYPE "AUTO"
+#define DESCRIPTOR_MEMORY_READ_DURING_WRITE_MODE "DONT_CARE"
+#define DESCRIPTOR_MEMORY_SINGLE_CLOCK_OP 0
+#define DESCRIPTOR_MEMORY_SIZE_MULTIPLE 1
+#define DESCRIPTOR_MEMORY_SIZE_VALUE 4096
+#define DESCRIPTOR_MEMORY_SPAN 4096
+#define DESCRIPTOR_MEMORY_TYPE "altera_avalon_onchip_memory2"
+#define DESCRIPTOR_MEMORY_WRITABLE 1
+
+
+/*
+ * eep_i2c_scl configuration
+ *
+
+#define ALT_MODULE_CLASS_eep_i2c_scl altera_avalon_pio
+#define EEP_I2C_SCL_BASE 0x8000480
+#define EEP_I2C_SCL_BIT_CLEARING_EDGE_REGISTER 0
+#define EEP_I2C_SCL_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define EEP_I2C_SCL_CAPTURE 0
+#define EEP_I2C_SCL_DATA_WIDTH 1
+#define EEP_I2C_SCL_DO_TEST_BENCH_WIRING 0
+#define EEP_I2C_SCL_DRIVEN_SIM_VALUE 0
+#define EEP_I2C_SCL_EDGE_TYPE "NONE"
+#define EEP_I2C_SCL_FREQ 60000000
+#define EEP_I2C_SCL_HAS_IN 0
+#define EEP_I2C_SCL_HAS_OUT 1
+#define EEP_I2C_SCL_HAS_TRI 0
+#define EEP_I2C_SCL_IRQ -1
+#define EEP_I2C_SCL_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define EEP_I2C_SCL_IRQ_TYPE "NONE"
+#define EEP_I2C_SCL_NAME "/dev/eep_i2c_scl"
+#define EEP_I2C_SCL_RESET_VALUE 0
+#define EEP_I2C_SCL_SPAN 16
+#define EEP_I2C_SCL_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * eep_i2c_sda configuration
+ *
+
+#define ALT_MODULE_CLASS_eep_i2c_sda altera_avalon_pio
+#define EEP_I2C_SDA_BASE 0x8000490
+#define EEP_I2C_SDA_BIT_CLEARING_EDGE_REGISTER 0
+#define EEP_I2C_SDA_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define EEP_I2C_SDA_CAPTURE 0
+#define EEP_I2C_SDA_DATA_WIDTH 1
+#define EEP_I2C_SDA_DO_TEST_BENCH_WIRING 0
+#define EEP_I2C_SDA_DRIVEN_SIM_VALUE 0
+#define EEP_I2C_SDA_EDGE_TYPE "NONE"
+#define EEP_I2C_SDA_FREQ 60000000
+#define EEP_I2C_SDA_HAS_IN 0
+#define EEP_I2C_SDA_HAS_OUT 0
+#define EEP_I2C_SDA_HAS_TRI 1
+#define EEP_I2C_SDA_IRQ -1
+#define EEP_I2C_SDA_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define EEP_I2C_SDA_IRQ_TYPE "NONE"
+#define EEP_I2C_SDA_NAME "/dev/eep_i2c_sda"
+#define EEP_I2C_SDA_RESET_VALUE 0
+#define EEP_I2C_SDA_SPAN 16
+#define EEP_I2C_SDA_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * ext_flash configuration
+ *
+
+#define ALT_MODULE_CLASS_ext_flash altera_generic_tristate_controller
+#define EXT_FLASH_BASE 0x4000000
+#define EXT_FLASH_HOLD_VALUE 60
+#define EXT_FLASH_IRQ -1
+#define EXT_FLASH_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define EXT_FLASH_NAME "/dev/ext_flash"
+#define EXT_FLASH_SETUP_VALUE 60
+#define EXT_FLASH_SIZE 8388608u
+#define EXT_FLASH_SPAN 8388608
+#define EXT_FLASH_TIMING_UNITS "ns"
+#define EXT_FLASH_TYPE "altera_generic_tristate_controller"
+#define EXT_FLASH_WAIT_VALUE 160
+ */
+
+
+/*
+ * hal configuration
+ *
+ */
+
+#define ALT_INCLUDE_INSTRUCTION_RELATED_EXCEPTION_API
+#define ALT_MAX_FD 32
+#define ALT_SYS_CLK SYS_CLK_TIMER
+#define ALT_TIMESTAMP_CLK none
+
+
+/*
+ * i2c_scl configuration
+ *
+
+#define ALT_MODULE_CLASS_i2c_scl altera_avalon_pio
+#define I2C_SCL_BASE 0x8000460
+#define I2C_SCL_BIT_CLEARING_EDGE_REGISTER 0
+#define I2C_SCL_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define I2C_SCL_CAPTURE 0
+#define I2C_SCL_DATA_WIDTH 1
+#define I2C_SCL_DO_TEST_BENCH_WIRING 0
+#define I2C_SCL_DRIVEN_SIM_VALUE 0
+#define I2C_SCL_EDGE_TYPE "NONE"
+#define I2C_SCL_FREQ 60000000
+#define I2C_SCL_HAS_IN 0
+#define I2C_SCL_HAS_OUT 1
+#define I2C_SCL_HAS_TRI 0
+#define I2C_SCL_IRQ -1
+#define I2C_SCL_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define I2C_SCL_IRQ_TYPE "NONE"
+#define I2C_SCL_NAME "/dev/i2c_scl"
+#define I2C_SCL_RESET_VALUE 0
+#define I2C_SCL_SPAN 16
+#define I2C_SCL_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * i2c_sda configuration
+ *
+
+#define ALT_MODULE_CLASS_i2c_sda altera_avalon_pio
+#define I2C_SDA_BASE 0x8000470
+#define I2C_SDA_BIT_CLEARING_EDGE_REGISTER 0
+#define I2C_SDA_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define I2C_SDA_CAPTURE 0
+#define I2C_SDA_DATA_WIDTH 1
+#define I2C_SDA_DO_TEST_BENCH_WIRING 0
+#define I2C_SDA_DRIVEN_SIM_VALUE 0
+#define I2C_SDA_EDGE_TYPE "NONE"
+#define I2C_SDA_FREQ 60000000
+#define I2C_SDA_HAS_IN 0
+#define I2C_SDA_HAS_OUT 0
+#define I2C_SDA_HAS_TRI 1
+#define I2C_SDA_IRQ -1
+#define I2C_SDA_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define I2C_SDA_IRQ_TYPE "NONE"
+#define I2C_SDA_NAME "/dev/i2c_sda"
+#define I2C_SDA_RESET_VALUE 0
+#define I2C_SDA_SPAN 16
+#define I2C_SDA_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * ir configuration
+ *
+
+#define ALT_MODULE_CLASS_ir altera_avalon_pio
+#define IR_BASE 0x80004b0
+#define IR_BIT_CLEARING_EDGE_REGISTER 0
+#define IR_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define IR_CAPTURE 0
+#define IR_DATA_WIDTH 1
+#define IR_DO_TEST_BENCH_WIRING 0
+#define IR_DRIVEN_SIM_VALUE 0
+#define IR_EDGE_TYPE "NONE"
+#define IR_FREQ 60000000
+#define IR_HAS_IN 1
+#define IR_HAS_OUT 0
+#define IR_HAS_TRI 0
+#define IR_IRQ -1
+#define IR_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define IR_IRQ_TYPE "NONE"
+#define IR_NAME "/dev/ir"
+#define IR_RESET_VALUE 0
+#define IR_SPAN 16
+#define IR_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * jtag_uart configuration
+ *
+
+#define ALT_MODULE_CLASS_jtag_uart altera_avalon_jtag_uart
+#define JTAG_UART_BASE 0x80001a0
+#define JTAG_UART_IRQ 1
+#define JTAG_UART_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define JTAG_UART_NAME "/dev/jtag_uart"
+#define JTAG_UART_READ_DEPTH 64
+#define JTAG_UART_READ_THRESHOLD 8
+#define JTAG_UART_SPAN 8
+#define JTAG_UART_TYPE "altera_avalon_jtag_uart"
+#define JTAG_UART_WRITE_DEPTH 64
+#define JTAG_UART_WRITE_THRESHOLD 8
+ */
+
+
+/*
+ * key configuration
+ *
+
+#define ALT_MODULE_CLASS_key altera_avalon_pio
+#define KEY_BASE 0x8000400
+#define KEY_BIT_CLEARING_EDGE_REGISTER 0
+#define KEY_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define KEY_CAPTURE 1
+#define KEY_DATA_WIDTH 4
+#define KEY_DO_TEST_BENCH_WIRING 0
+#define KEY_DRIVEN_SIM_VALUE 0
+#define KEY_EDGE_TYPE "FALLING"
+#define KEY_FREQ 60000000
+#define KEY_HAS_IN 1
+#define KEY_HAS_OUT 0
+#define KEY_HAS_TRI 0
+#define KEY_IRQ 6
+#define KEY_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define KEY_IRQ_TYPE "EDGE"
+#define KEY_NAME "/dev/key"
+#define KEY_RESET_VALUE 0
+#define KEY_SPAN 16
+#define KEY_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * lcd configuration
+ *
+
+#define ALT_MODULE_CLASS_lcd altera_avalon_lcd_16207
+#define LCD_BASE 0x80004a0
+#define LCD_IRQ -1
+#define LCD_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define LCD_NAME "/dev/lcd"
+#define LCD_SPAN 16
+#define LCD_TYPE "altera_avalon_lcd_16207"
+ */
+
+
+/*
+ * ledg configuration
+ *
+
+#define ALT_MODULE_CLASS_ledg altera_avalon_pio
+#define LEDG_BASE 0x8000420
+#define LEDG_BIT_CLEARING_EDGE_REGISTER 0
+#define LEDG_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define LEDG_CAPTURE 0
+#define LEDG_DATA_WIDTH 9
+#define LEDG_DO_TEST_BENCH_WIRING 0
+#define LEDG_DRIVEN_SIM_VALUE 0
+#define LEDG_EDGE_TYPE "NONE"
+#define LEDG_FREQ 60000000
+#define LEDG_HAS_IN 0
+#define LEDG_HAS_OUT 1
+#define LEDG_HAS_TRI 0
+#define LEDG_IRQ -1
+#define LEDG_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define LEDG_IRQ_TYPE "NONE"
+#define LEDG_NAME "/dev/ledg"
+#define LEDG_RESET_VALUE 0
+#define LEDG_SPAN 16
+#define LEDG_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * ledr configuration
+ *
+
+#define ALT_MODULE_CLASS_ledr altera_avalon_pio
+#define LEDR_BASE 0x8000430
+#define LEDR_BIT_CLEARING_EDGE_REGISTER 0
+#define LEDR_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define LEDR_CAPTURE 0
+#define LEDR_DATA_WIDTH 18
+#define LEDR_DO_TEST_BENCH_WIRING 0
+#define LEDR_DRIVEN_SIM_VALUE 0
+#define LEDR_EDGE_TYPE "NONE"
+#define LEDR_FREQ 60000000
+#define LEDR_HAS_IN 0
+#define LEDR_HAS_OUT 1
+#define LEDR_HAS_TRI 0
+#define LEDR_IRQ -1
+#define LEDR_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define LEDR_IRQ_TYPE "NONE"
+#define LEDR_NAME "/dev/ledr"
+#define LEDR_RESET_VALUE 0
+#define LEDR_SPAN 16
+#define LEDR_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * onchip_memory2 configuration
+ *
+
+#define ALT_MODULE_CLASS_onchip_memory2 altera_avalon_onchip_memory2
+#define ONCHIP_MEMORY2_ALLOW_IN_SYSTEM_MEMORY_CONTENT_EDITOR 0
+#define ONCHIP_MEMORY2_ALLOW_MRAM_SIM_CONTENTS_ONLY_FILE 0
+#define ONCHIP_MEMORY2_BASE 0xa000000
+#define ONCHIP_MEMORY2_CONTENTS_INFO ""
+#define ONCHIP_MEMORY2_DUAL_PORT 0
+#define ONCHIP_MEMORY2_GUI_RAM_BLOCK_TYPE "AUTO"
+#define ONCHIP_MEMORY2_INIT_CONTENTS_FILE "DE2_115_SOPC_onchip_memory2"
+#define ONCHIP_MEMORY2_INIT_MEM_CONTENT 1
+#define ONCHIP_MEMORY2_INSTANCE_ID "NONE"
+#define ONCHIP_MEMORY2_IRQ -1
+#define ONCHIP_MEMORY2_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define ONCHIP_MEMORY2_NAME "/dev/onchip_memory2"
+#define ONCHIP_MEMORY2_NON_DEFAULT_INIT_FILE_ENABLED 0
+#define ONCHIP_MEMORY2_RAM_BLOCK_TYPE "AUTO"
+#define ONCHIP_MEMORY2_READ_DURING_WRITE_MODE "DONT_CARE"
+#define ONCHIP_MEMORY2_SINGLE_CLOCK_OP 0
+#define ONCHIP_MEMORY2_SIZE_MULTIPLE 1
+#define ONCHIP_MEMORY2_SIZE_VALUE 131072
+#define ONCHIP_MEMORY2_SPAN 131072
+#define ONCHIP_MEMORY2_TYPE "altera_avalon_onchip_memory2"
+#define ONCHIP_MEMORY2_WRITABLE 1
+ */
+
+
+/*
+ * pll configuration
+ *
+
+#define ALT_MODULE_CLASS_pll altpll
+#define PLL_BASE 0x8000140
+#define PLL_IRQ -1
+#define PLL_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PLL_NAME "/dev/pll"
+#define PLL_SPAN 16
+#define PLL_TYPE "altpll"
+ */
+
+
+/*
+ * rs232 configuration
+ *
+
+#define ALT_MODULE_CLASS_rs232 altera_avalon_uart
+#define RS232_BASE 0x8000440
+#define RS232_BAUD 115200
+#define RS232_DATA_BITS 8
+#define RS232_FIXED_BAUD 1
+#define RS232_FREQ 60000000
+#define RS232_IRQ 7
+#define RS232_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define RS232_NAME "/dev/rs232"
+#define RS232_PARITY 'N'
+#define RS232_SIM_CHAR_STREAM ""
+#define RS232_SIM_TRUE_BAUD 0
+#define RS232_SPAN 32
+#define RS232_STOP_BITS 1
+#define RS232_SYNC_REG_DEPTH 2
+#define RS232_TYPE "altera_avalon_uart"
+#define RS232_USE_CTS_RTS 1
+#define RS232_USE_EOP_REGISTER 0
+ */
+
+
+/*
+ * sd_clk configuration
+ *
+
+#define ALT_MODULE_CLASS_sd_clk altera_avalon_pio
+#define SD_CLK_BASE 0x80004c0
+#define SD_CLK_BIT_CLEARING_EDGE_REGISTER 0
+#define SD_CLK_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define SD_CLK_CAPTURE 0
+#define SD_CLK_DATA_WIDTH 1
+#define SD_CLK_DO_TEST_BENCH_WIRING 0
+#define SD_CLK_DRIVEN_SIM_VALUE 0
+#define SD_CLK_EDGE_TYPE "NONE"
+#define SD_CLK_FREQ 60000000
+#define SD_CLK_HAS_IN 0
+#define SD_CLK_HAS_OUT 1
+#define SD_CLK_HAS_TRI 0
+#define SD_CLK_IRQ -1
+#define SD_CLK_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SD_CLK_IRQ_TYPE "NONE"
+#define SD_CLK_NAME "/dev/sd_clk"
+#define SD_CLK_RESET_VALUE 0
+#define SD_CLK_SPAN 16
+#define SD_CLK_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * sd_cmd configuration
+ *
+
+#define ALT_MODULE_CLASS_sd_cmd altera_avalon_pio
+#define SD_CMD_BASE 0x80004d0
+#define SD_CMD_BIT_CLEARING_EDGE_REGISTER 0
+#define SD_CMD_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define SD_CMD_CAPTURE 0
+#define SD_CMD_DATA_WIDTH 1
+#define SD_CMD_DO_TEST_BENCH_WIRING 0
+#define SD_CMD_DRIVEN_SIM_VALUE 0
+#define SD_CMD_EDGE_TYPE "NONE"
+#define SD_CMD_FREQ 60000000
+#define SD_CMD_HAS_IN 0
+#define SD_CMD_HAS_OUT 0
+#define SD_CMD_HAS_TRI 1
+#define SD_CMD_IRQ -1
+#define SD_CMD_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SD_CMD_IRQ_TYPE "NONE"
+#define SD_CMD_NAME "/dev/sd_cmd"
+#define SD_CMD_RESET_VALUE 0
+#define SD_CMD_SPAN 16
+#define SD_CMD_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * sd_dat configuration
+ *
+
+#define ALT_MODULE_CLASS_sd_dat altera_avalon_pio
+#define SD_DAT_BASE 0x80004e0
+#define SD_DAT_BIT_CLEARING_EDGE_REGISTER 0
+#define SD_DAT_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define SD_DAT_CAPTURE 0
+#define SD_DAT_DATA_WIDTH 4
+#define SD_DAT_DO_TEST_BENCH_WIRING 0
+#define SD_DAT_DRIVEN_SIM_VALUE 0
+#define SD_DAT_EDGE_TYPE "NONE"
+#define SD_DAT_FREQ 60000000
+#define SD_DAT_HAS_IN 0
+#define SD_DAT_HAS_OUT 0
+#define SD_DAT_HAS_TRI 1
+#define SD_DAT_IRQ -1
+#define SD_DAT_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SD_DAT_IRQ_TYPE "NONE"
+#define SD_DAT_NAME "/dev/sd_dat"
+#define SD_DAT_RESET_VALUE 0
+#define SD_DAT_SPAN 16
+#define SD_DAT_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * sd_wp_n configuration
+ *
+
+#define ALT_MODULE_CLASS_sd_wp_n altera_avalon_pio
+#define SD_WP_N_BASE 0x80004f0
+#define SD_WP_N_BIT_CLEARING_EDGE_REGISTER 0
+#define SD_WP_N_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define SD_WP_N_CAPTURE 0
+#define SD_WP_N_DATA_WIDTH 1
+#define SD_WP_N_DO_TEST_BENCH_WIRING 0
+#define SD_WP_N_DRIVEN_SIM_VALUE 0
+#define SD_WP_N_EDGE_TYPE "NONE"
+#define SD_WP_N_FREQ 60000000
+#define SD_WP_N_HAS_IN 1
+#define SD_WP_N_HAS_OUT 0
+#define SD_WP_N_HAS_TRI 0
+#define SD_WP_N_IRQ -1
+#define SD_WP_N_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SD_WP_N_IRQ_TYPE "NONE"
+#define SD_WP_N_NAME "/dev/sd_wp_n"
+#define SD_WP_N_RESET_VALUE 0
+#define SD_WP_N_SPAN 16
+#define SD_WP_N_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * sdram configuration
+ *
+
+#define ALT_MODULE_CLASS_sdram altera_avalon_new_sdram_controller
+#define SDRAM_BASE 0x0
+#define SDRAM_CAS_LATENCY 3
+#define SDRAM_CONTENTS_INFO
+#define SDRAM_INIT_NOP_DELAY 0.0
+#define SDRAM_INIT_REFRESH_COMMANDS 2
+#define SDRAM_IRQ -1
+#define SDRAM_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SDRAM_IS_INITIALIZED 1
+#define SDRAM_NAME "/dev/sdram"
+#define SDRAM_POWERUP_DELAY 100.0
+#define SDRAM_REFRESH_PERIOD 15.625
+#define SDRAM_REGISTER_DATA_IN 1
+#define SDRAM_SDRAM_ADDR_WIDTH 0x17
+#define SDRAM_SDRAM_BANK_WIDTH 2
+#define SDRAM_SDRAM_COL_WIDTH 10
+#define SDRAM_SDRAM_DATA_WIDTH 32
+#define SDRAM_SDRAM_NUM_BANKS 4
+#define SDRAM_SDRAM_NUM_CHIPSELECTS 1
+#define SDRAM_SDRAM_ROW_WIDTH 11
+#define SDRAM_SHARED_DATA 0
+#define SDRAM_SIM_MODEL_BASE 1
+#define SDRAM_SPAN 33554432
+#define SDRAM_STARVATION_INDICATOR 0
+#define SDRAM_TRISTATE_BRIDGE_SLAVE ""
+#define SDRAM_TYPE "altera_avalon_new_sdram_controller"
+#define SDRAM_T_AC 5.5
+#define SDRAM_T_MRD 3
+#define SDRAM_T_RCD 20.0
+#define SDRAM_T_RFC 70.0
+#define SDRAM_T_RP 20.0
+#define SDRAM_T_WR 14.0
+ */
+
+
+/*
+ * sdram configuration as viewed by sgdma_rx_m_write
+ *
+ */
+
+#define SGDMA_RX_M_WRITE_SDRAM_BASE 0x0
+#define SGDMA_RX_M_WRITE_SDRAM_CAS_LATENCY 3
+#define SGDMA_RX_M_WRITE_SDRAM_CONTENTS_INFO
+#define SGDMA_RX_M_WRITE_SDRAM_INIT_NOP_DELAY 0.0
+#define SGDMA_RX_M_WRITE_SDRAM_INIT_REFRESH_COMMANDS 2
+#define SGDMA_RX_M_WRITE_SDRAM_IRQ -1
+#define SGDMA_RX_M_WRITE_SDRAM_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SGDMA_RX_M_WRITE_SDRAM_IS_INITIALIZED 1
+#define SGDMA_RX_M_WRITE_SDRAM_NAME "/dev/sdram"
+#define SGDMA_RX_M_WRITE_SDRAM_POWERUP_DELAY 100.0
+#define SGDMA_RX_M_WRITE_SDRAM_REFRESH_PERIOD 15.625
+#define SGDMA_RX_M_WRITE_SDRAM_REGISTER_DATA_IN 1
+#define SGDMA_RX_M_WRITE_SDRAM_SDRAM_ADDR_WIDTH 0x17
+#define SGDMA_RX_M_WRITE_SDRAM_SDRAM_BANK_WIDTH 2
+#define SGDMA_RX_M_WRITE_SDRAM_SDRAM_COL_WIDTH 10
+#define SGDMA_RX_M_WRITE_SDRAM_SDRAM_DATA_WIDTH 32
+#define SGDMA_RX_M_WRITE_SDRAM_SDRAM_NUM_BANKS 4
+#define SGDMA_RX_M_WRITE_SDRAM_SDRAM_NUM_CHIPSELECTS 1
+#define SGDMA_RX_M_WRITE_SDRAM_SDRAM_ROW_WIDTH 11
+#define SGDMA_RX_M_WRITE_SDRAM_SHARED_DATA 0
+#define SGDMA_RX_M_WRITE_SDRAM_SIM_MODEL_BASE 1
+#define SGDMA_RX_M_WRITE_SDRAM_SPAN 33554432
+#define SGDMA_RX_M_WRITE_SDRAM_STARVATION_INDICATOR 0
+#define SGDMA_RX_M_WRITE_SDRAM_TRISTATE_BRIDGE_SLAVE ""
+#define SGDMA_RX_M_WRITE_SDRAM_TYPE "altera_avalon_new_sdram_controller"
+#define SGDMA_RX_M_WRITE_SDRAM_T_AC 5.5
+#define SGDMA_RX_M_WRITE_SDRAM_T_MRD 3
+#define SGDMA_RX_M_WRITE_SDRAM_T_RCD 20.0
+#define SGDMA_RX_M_WRITE_SDRAM_T_RFC 70.0
+#define SGDMA_RX_M_WRITE_SDRAM_T_RP 20.0
+#define SGDMA_RX_M_WRITE_SDRAM_T_WR 14.0
+
+
+/*
+ * sdram configuration as viewed by sgdma_tx_m_read
+ *
+ */
+
+#define SGDMA_TX_M_READ_SDRAM_BASE 0x0
+#define SGDMA_TX_M_READ_SDRAM_CAS_LATENCY 3
+#define SGDMA_TX_M_READ_SDRAM_CONTENTS_INFO
+#define SGDMA_TX_M_READ_SDRAM_INIT_NOP_DELAY 0.0
+#define SGDMA_TX_M_READ_SDRAM_INIT_REFRESH_COMMANDS 2
+#define SGDMA_TX_M_READ_SDRAM_IRQ -1
+#define SGDMA_TX_M_READ_SDRAM_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SGDMA_TX_M_READ_SDRAM_IS_INITIALIZED 1
+#define SGDMA_TX_M_READ_SDRAM_NAME "/dev/sdram"
+#define SGDMA_TX_M_READ_SDRAM_POWERUP_DELAY 100.0
+#define SGDMA_TX_M_READ_SDRAM_REFRESH_PERIOD 15.625
+#define SGDMA_TX_M_READ_SDRAM_REGISTER_DATA_IN 1
+#define SGDMA_TX_M_READ_SDRAM_SDRAM_ADDR_WIDTH 0x17
+#define SGDMA_TX_M_READ_SDRAM_SDRAM_BANK_WIDTH 2
+#define SGDMA_TX_M_READ_SDRAM_SDRAM_COL_WIDTH 10
+#define SGDMA_TX_M_READ_SDRAM_SDRAM_DATA_WIDTH 32
+#define SGDMA_TX_M_READ_SDRAM_SDRAM_NUM_BANKS 4
+#define SGDMA_TX_M_READ_SDRAM_SDRAM_NUM_CHIPSELECTS 1
+#define SGDMA_TX_M_READ_SDRAM_SDRAM_ROW_WIDTH 11
+#define SGDMA_TX_M_READ_SDRAM_SHARED_DATA 0
+#define SGDMA_TX_M_READ_SDRAM_SIM_MODEL_BASE 1
+#define SGDMA_TX_M_READ_SDRAM_SPAN 33554432
+#define SGDMA_TX_M_READ_SDRAM_STARVATION_INDICATOR 0
+#define SGDMA_TX_M_READ_SDRAM_TRISTATE_BRIDGE_SLAVE ""
+#define SGDMA_TX_M_READ_SDRAM_TYPE "altera_avalon_new_sdram_controller"
+#define SGDMA_TX_M_READ_SDRAM_T_AC 5.5
+#define SGDMA_TX_M_READ_SDRAM_T_MRD 3
+#define SGDMA_TX_M_READ_SDRAM_T_RCD 20.0
+#define SGDMA_TX_M_READ_SDRAM_T_RFC 70.0
+#define SGDMA_TX_M_READ_SDRAM_T_RP 20.0
+#define SGDMA_TX_M_READ_SDRAM_T_WR 14.0
+
+
+/*
+ * seg7 configuration
+ *
+
+#define ALT_MODULE_CLASS_seg7 SEG7_IF
+#define SEG7_BASE 0x8000500
+#define SEG7_IRQ -1
+#define SEG7_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SEG7_NAME "/dev/seg7"
+#define SEG7_SPAN 32
+#define SEG7_TYPE "SEG7_IF"
+ */
+
+
+/*
+ * sgdma_rx configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_sgdma_rx altera_avalon_sgdma
+#define SGDMA_RX_ADDRESS_WIDTH 32
+#define SGDMA_RX_ALWAYS_DO_MAX_BURST 1
+#define SGDMA_RX_ATLANTIC_CHANNEL_DATA_WIDTH 4
+#define SGDMA_RX_AVALON_MM_BYTE_REORDER_MODE 0
+#define SGDMA_RX_BASE 0x2000c40
+#define SGDMA_RX_BURST_DATA_WIDTH 8
+#define SGDMA_RX_BURST_TRANSFER 0
+#define SGDMA_RX_BYTES_TO_TRANSFER_DATA_WIDTH 16
+#define SGDMA_RX_CHAIN_WRITEBACK_DATA_WIDTH 32
+#define SGDMA_RX_COMMAND_FIFO_DATA_WIDTH 104
+#define SGDMA_RX_CONTROL_DATA_WIDTH 8
+#define SGDMA_RX_CONTROL_SLAVE_ADDRESS_WIDTH 0x4
+#define SGDMA_RX_CONTROL_SLAVE_DATA_WIDTH 32
+#define SGDMA_RX_DESCRIPTOR_READ_BURST 0
+#define SGDMA_RX_DESC_DATA_WIDTH 32
+#define SGDMA_RX_HAS_READ_BLOCK 0
+#define SGDMA_RX_HAS_WRITE_BLOCK 1
+#define SGDMA_RX_IN_ERROR_WIDTH 6
+#define SGDMA_RX_IRQ 12
+#define SGDMA_RX_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define SGDMA_RX_NAME "/dev/sgdma_rx"
+#define SGDMA_RX_OUT_ERROR_WIDTH 0
+#define SGDMA_RX_READ_BLOCK_DATA_WIDTH 32
+#define SGDMA_RX_READ_BURSTCOUNT_WIDTH 4
+#define SGDMA_RX_SPAN 64
+#define SGDMA_RX_STATUS_TOKEN_DATA_WIDTH 24
+#define SGDMA_RX_STREAM_DATA_WIDTH 32
+#define SGDMA_RX_SYMBOLS_PER_BEAT 4
+#define SGDMA_RX_TYPE "altera_avalon_sgdma"
+#define SGDMA_RX_UNALIGNED_TRANSFER 0
+#define SGDMA_RX_WRITE_BLOCK_DATA_WIDTH 32
+#define SGDMA_RX_WRITE_BURSTCOUNT_WIDTH 4
+
+
+/*
+ * sgdma_tx configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_sgdma_tx altera_avalon_sgdma
+#define SGDMA_TX_ADDRESS_WIDTH 32
+#define SGDMA_TX_ALWAYS_DO_MAX_BURST 1
+#define SGDMA_TX_ATLANTIC_CHANNEL_DATA_WIDTH 4
+#define SGDMA_TX_AVALON_MM_BYTE_REORDER_MODE 0
+#define SGDMA_TX_BASE 0x2000c00
+#define SGDMA_TX_BURST_DATA_WIDTH 8
+#define SGDMA_TX_BURST_TRANSFER 0
+#define SGDMA_TX_BYTES_TO_TRANSFER_DATA_WIDTH 16
+#define SGDMA_TX_CHAIN_WRITEBACK_DATA_WIDTH 32
+#define SGDMA_TX_COMMAND_FIFO_DATA_WIDTH 104
+#define SGDMA_TX_CONTROL_DATA_WIDTH 8
+#define SGDMA_TX_CONTROL_SLAVE_ADDRESS_WIDTH 0x4
+#define SGDMA_TX_CONTROL_SLAVE_DATA_WIDTH 32
+#define SGDMA_TX_DESCRIPTOR_READ_BURST 0
+#define SGDMA_TX_DESC_DATA_WIDTH 32
+#define SGDMA_TX_HAS_READ_BLOCK 1
+#define SGDMA_TX_HAS_WRITE_BLOCK 0
+#define SGDMA_TX_IN_ERROR_WIDTH 0
+#define SGDMA_TX_IRQ 13
+#define SGDMA_TX_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define SGDMA_TX_NAME "/dev/sgdma_tx"
+#define SGDMA_TX_OUT_ERROR_WIDTH 1
+#define SGDMA_TX_READ_BLOCK_DATA_WIDTH 32
+#define SGDMA_TX_READ_BURSTCOUNT_WIDTH 4
+#define SGDMA_TX_SPAN 64
+#define SGDMA_TX_STATUS_TOKEN_DATA_WIDTH 24
+#define SGDMA_TX_STREAM_DATA_WIDTH 32
+#define SGDMA_TX_SYMBOLS_PER_BEAT 4
+#define SGDMA_TX_TYPE "altera_avalon_sgdma"
+#define SGDMA_TX_UNALIGNED_TRANSFER 0
+#define SGDMA_TX_WRITE_BLOCK_DATA_WIDTH 32
+#define SGDMA_TX_WRITE_BURSTCOUNT_WIDTH 4
+
+
+/*
+ * sma_in configuration
+ *
+
+#define ALT_MODULE_CLASS_sma_in altera_avalon_pio
+#define SMA_IN_BASE 0x8001000
+#define SMA_IN_BIT_CLEARING_EDGE_REGISTER 0
+#define SMA_IN_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define SMA_IN_CAPTURE 0
+#define SMA_IN_DATA_WIDTH 1
+#define SMA_IN_DO_TEST_BENCH_WIRING 0
+#define SMA_IN_DRIVEN_SIM_VALUE 0
+#define SMA_IN_EDGE_TYPE "NONE"
+#define SMA_IN_FREQ 100000000
+#define SMA_IN_HAS_IN 1
+#define SMA_IN_HAS_OUT 0
+#define SMA_IN_HAS_TRI 0
+#define SMA_IN_IRQ -1
+#define SMA_IN_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SMA_IN_IRQ_TYPE "NONE"
+#define SMA_IN_NAME "/dev/sma_in"
+#define SMA_IN_RESET_VALUE 0
+#define SMA_IN_SPAN 16
+#define SMA_IN_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * sma_out configuration
+ *
+
+#define ALT_MODULE_CLASS_sma_out altera_avalon_pio
+#define SMA_OUT_BASE 0x8001010
+#define SMA_OUT_BIT_CLEARING_EDGE_REGISTER 0
+#define SMA_OUT_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define SMA_OUT_CAPTURE 0
+#define SMA_OUT_DATA_WIDTH 1
+#define SMA_OUT_DO_TEST_BENCH_WIRING 0
+#define SMA_OUT_DRIVEN_SIM_VALUE 0
+#define SMA_OUT_EDGE_TYPE "NONE"
+#define SMA_OUT_FREQ 100000000
+#define SMA_OUT_HAS_IN 0
+#define SMA_OUT_HAS_OUT 1
+#define SMA_OUT_HAS_TRI 0
+#define SMA_OUT_IRQ -1
+#define SMA_OUT_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SMA_OUT_IRQ_TYPE "NONE"
+#define SMA_OUT_NAME "/dev/sma_out"
+#define SMA_OUT_RESET_VALUE 0
+#define SMA_OUT_SPAN 16
+#define SMA_OUT_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * sram configuration
+ *
+
+#define ALT_MODULE_CLASS_sram TERASIC_SRAM
+#define SRAM_BASE 0x5000000
+#define SRAM_IRQ -1
+#define SRAM_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SRAM_NAME "/dev/sram"
+#define SRAM_SPAN 2097152
+#define SRAM_TYPE "TERASIC_SRAM"
+ */
+
+
+/*
+ * sw configuration
+ *
+
+#define ALT_MODULE_CLASS_sw altera_avalon_pio
+#define SW_BASE 0x8000410
+#define SW_BIT_CLEARING_EDGE_REGISTER 0
+#define SW_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define SW_CAPTURE 1
+#define SW_DATA_WIDTH 18
+#define SW_DO_TEST_BENCH_WIRING 0
+#define SW_DRIVEN_SIM_VALUE 0
+#define SW_EDGE_TYPE "FALLING"
+#define SW_FREQ 60000000
+#define SW_HAS_IN 1
+#define SW_HAS_OUT 0
+#define SW_HAS_TRI 0
+#define SW_IRQ 5
+#define SW_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define SW_IRQ_TYPE "EDGE"
+#define SW_NAME "/dev/sw"
+#define SW_RESET_VALUE 0
+#define SW_SPAN 16
+#define SW_TYPE "altera_avalon_pio"
+ */
+
+
+/*
+ * sys_clk_timer configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_sys_clk_timer altera_avalon_timer
+#define SYS_CLK_TIMER_ALWAYS_RUN 0
+//#define SYS_CLK_TIMER_BASE 0x8000160
+#define SYS_CLK_TIMER_COUNTER_SIZE 32
+#define SYS_CLK_TIMER_FIXED_PERIOD 0
+#define SYS_CLK_TIMER_FREQ 60000000
+#define SYS_CLK_TIMER_IRQ 0
+#define SYS_CLK_TIMER_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define SYS_CLK_TIMER_LOAD_VALUE 59999
+#define SYS_CLK_TIMER_MULT 0.0010
+#define SYS_CLK_TIMER_NAME "/dev/sys_clk_timer"
+#define SYS_CLK_TIMER_PERIOD 1
+#define SYS_CLK_TIMER_PERIOD_UNITS "ms"
+#define SYS_CLK_TIMER_RESET_OUTPUT 0
+#define SYS_CLK_TIMER_SNAPSHOT 1
+#define SYS_CLK_TIMER_SPAN 32
+#define SYS_CLK_TIMER_TICKS_PER_SEC 1000.0
+#define SYS_CLK_TIMER_TIMEOUT_PULSE_OUTPUT 0
+#define SYS_CLK_TIMER_TYPE "altera_avalon_timer"
+
+
+/*
+ * sysid configuration
+ *
+
+#define ALT_MODULE_CLASS_sysid altera_avalon_sysid_qsys
+#define SYSID_BASE 0x80001a8
+#define SYSID_ID 0
+#define SYSID_IRQ -1
+#define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SYSID_NAME "/dev/sysid"
+#define SYSID_SPAN 8
+#define SYSID_TIMESTAMP 1493023976
+#define SYSID_TYPE "altera_avalon_sysid_qsys"
+ */
+
+
+/*
+ * sysver_0 configuration
+ *
+
+#define ALT_MODULE_CLASS_sysver_0 sysver
+#define SYSVER_0_BASE 0x80001c0
+#define SYSVER_0_IRQ -1
+#define SYSVER_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SYSVER_0_NAME "/dev/sysver_0"
+#define SYSVER_0_SPAN 32
+#define SYSVER_0_TYPE "sysver"
+ */
+
+
+/*
+ * timer_0 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_0 altera_avalon_timer
+#define TIMER_0_ALWAYS_RUN 0
+#define TIMER_0_BASE 0x8000200
+#define TIMER_0_COUNTER_SIZE 32
+#define TIMER_0_FIXED_PERIOD 0
+#define TIMER_0_FREQ 60000000
+//#define TIMER_0_IRQ 16
+#define TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_0_LOAD_VALUE 59999
+#define TIMER_0_MULT 0.0010
+#define TIMER_0_NAME "/dev/timer_0"
+#define TIMER_0_PERIOD 1
+#define TIMER_0_PERIOD_UNITS "ms"
+#define TIMER_0_RESET_OUTPUT 0
+#define TIMER_0_SNAPSHOT 1
+#define TIMER_0_SPAN 32
+#define TIMER_0_TICKS_PER_SEC 1000.0
+#define TIMER_0_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_0_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_1 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_1 altera_avalon_timer
+#define TIMER_1_ALWAYS_RUN 0
+#define TIMER_1_BASE 0x8000220
+#define TIMER_1_COUNTER_SIZE 32
+#define TIMER_1_FIXED_PERIOD 0
+#define TIMER_1_FREQ 60000000
+//#define TIMER_1_IRQ 17
+#define TIMER_1_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_1_LOAD_VALUE 59999
+#define TIMER_1_MULT 0.0010
+#define TIMER_1_NAME "/dev/timer_1"
+#define TIMER_1_PERIOD 1
+#define TIMER_1_PERIOD_UNITS "ms"
+#define TIMER_1_RESET_OUTPUT 0
+#define TIMER_1_SNAPSHOT 1
+#define TIMER_1_SPAN 32
+#define TIMER_1_TICKS_PER_SEC 1000.0
+#define TIMER_1_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_1_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_10 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_10 altera_avalon_timer
+#define TIMER_10_ALWAYS_RUN 0
+#define TIMER_10_BASE 0x8000340
+#define TIMER_10_COUNTER_SIZE 32
+#define TIMER_10_FIXED_PERIOD 0
+#define TIMER_10_FREQ 60000000
+//#define TIMER_10_IRQ 26
+#define TIMER_10_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_10_LOAD_VALUE 59999
+#define TIMER_10_MULT 0.0010
+#define TIMER_10_NAME "/dev/timer_10"
+#define TIMER_10_PERIOD 1
+#define TIMER_10_PERIOD_UNITS "ms"
+#define TIMER_10_RESET_OUTPUT 0
+#define TIMER_10_SNAPSHOT 1
+#define TIMER_10_SPAN 32
+#define TIMER_10_TICKS_PER_SEC 1000.0
+#define TIMER_10_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_10_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_11 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_11 altera_avalon_timer
+#define TIMER_11_ALWAYS_RUN 0
+#define TIMER_11_BASE 0x8000360
+#define TIMER_11_COUNTER_SIZE 32
+#define TIMER_11_FIXED_PERIOD 0
+#define TIMER_11_FREQ 60000000
+//#define TIMER_11_IRQ 27
+#define TIMER_11_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_11_LOAD_VALUE 59999
+#define TIMER_11_MULT 0.0010
+#define TIMER_11_NAME "/dev/timer_11"
+#define TIMER_11_PERIOD 1
+#define TIMER_11_PERIOD_UNITS "ms"
+#define TIMER_11_RESET_OUTPUT 0
+#define TIMER_11_SNAPSHOT 1
+#define TIMER_11_SPAN 32
+#define TIMER_11_TICKS_PER_SEC 1000.0
+#define TIMER_11_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_11_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_12 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_12 altera_avalon_timer
+#define TIMER_12_ALWAYS_RUN 0
+#define TIMER_12_BASE 0x8000380
+#define TIMER_12_COUNTER_SIZE 32
+#define TIMER_12_FIXED_PERIOD 0
+#define TIMER_12_FREQ 60000000
+//#define TIMER_12_IRQ 28
+#define TIMER_12_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_12_LOAD_VALUE 59999
+#define TIMER_12_MULT 0.0010
+#define TIMER_12_NAME "/dev/timer_12"
+#define TIMER_12_PERIOD 1
+#define TIMER_12_PERIOD_UNITS "ms"
+#define TIMER_12_RESET_OUTPUT 0
+#define TIMER_12_SNAPSHOT 1
+#define TIMER_12_SPAN 32
+#define TIMER_12_TICKS_PER_SEC 1000.0
+#define TIMER_12_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_12_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_13 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_13 altera_avalon_timer
+#define TIMER_13_ALWAYS_RUN 0
+#define TIMER_13_BASE 0x80003a0
+#define TIMER_13_COUNTER_SIZE 32
+#define TIMER_13_FIXED_PERIOD 0
+#define TIMER_13_FREQ 60000000
+//#define TIMER_13_IRQ 29
+#define TIMER_13_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_13_LOAD_VALUE 59999
+#define TIMER_13_MULT 0.0010
+#define TIMER_13_NAME "/dev/timer_13"
+#define TIMER_13_PERIOD 1
+#define TIMER_13_PERIOD_UNITS "ms"
+#define TIMER_13_RESET_OUTPUT 0
+#define TIMER_13_SNAPSHOT 1
+#define TIMER_13_SPAN 32
+#define TIMER_13_TICKS_PER_SEC 1000.0
+#define TIMER_13_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_13_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_14 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_14 altera_avalon_timer
+#define TIMER_14_ALWAYS_RUN 0
+#define TIMER_14_BASE 0x80003c0
+#define TIMER_14_COUNTER_SIZE 32
+#define TIMER_14_FIXED_PERIOD 0
+#define TIMER_14_FREQ 60000000
+//#define TIMER_14_IRQ 30
+#define TIMER_14_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_14_LOAD_VALUE 59999
+#define TIMER_14_MULT 0.0010
+#define TIMER_14_NAME "/dev/timer_14"
+#define TIMER_14_PERIOD 1
+#define TIMER_14_PERIOD_UNITS "ms"
+#define TIMER_14_RESET_OUTPUT 0
+#define TIMER_14_SNAPSHOT 1
+#define TIMER_14_SPAN 32
+#define TIMER_14_TICKS_PER_SEC 1000.0
+#define TIMER_14_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_14_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_15 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_15 altera_avalon_timer
+#define TIMER_15_ALWAYS_RUN 0
+#define TIMER_15_BASE 0x80003e0
+#define TIMER_15_COUNTER_SIZE 32
+#define TIMER_15_FIXED_PERIOD 0
+#define TIMER_15_FREQ 60000000
+//#define TIMER_15_IRQ 31
+#define TIMER_15_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_15_LOAD_VALUE 59999
+#define TIMER_15_MULT 0.0010
+#define TIMER_15_NAME "/dev/timer_15"
+#define TIMER_15_PERIOD 1
+#define TIMER_15_PERIOD_UNITS "ms"
+#define TIMER_15_RESET_OUTPUT 0
+#define TIMER_15_SNAPSHOT 1
+#define TIMER_15_SPAN 32
+#define TIMER_15_TICKS_PER_SEC 1000.0
+#define TIMER_15_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_15_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_2 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_2 altera_avalon_timer
+#define TIMER_2_ALWAYS_RUN 0
+#define TIMER_2_BASE 0x8000240
+#define TIMER_2_COUNTER_SIZE 32
+#define TIMER_2_FIXED_PERIOD 0
+#define TIMER_2_FREQ 60000000
+//#define TIMER_2_IRQ 18
+#define TIMER_2_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_2_LOAD_VALUE 59999
+#define TIMER_2_MULT 0.0010
+#define TIMER_2_NAME "/dev/timer_2"
+#define TIMER_2_PERIOD 1
+#define TIMER_2_PERIOD_UNITS "ms"
+#define TIMER_2_RESET_OUTPUT 0
+#define TIMER_2_SNAPSHOT 1
+#define TIMER_2_SPAN 32
+#define TIMER_2_TICKS_PER_SEC 1000.0
+#define TIMER_2_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_2_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_3 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_3 altera_avalon_timer
+#define TIMER_3_ALWAYS_RUN 0
+#define TIMER_3_BASE 0x8000260
+#define TIMER_3_COUNTER_SIZE 32
+#define TIMER_3_FIXED_PERIOD 0
+#define TIMER_3_FREQ 60000000
+//#define TIMER_3_IRQ 19
+#define TIMER_3_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_3_LOAD_VALUE 59999
+#define TIMER_3_MULT 0.0010
+#define TIMER_3_NAME "/dev/timer_3"
+#define TIMER_3_PERIOD 1
+#define TIMER_3_PERIOD_UNITS "ms"
+#define TIMER_3_RESET_OUTPUT 0
+#define TIMER_3_SNAPSHOT 1
+#define TIMER_3_SPAN 32
+#define TIMER_3_TICKS_PER_SEC 1000.0
+#define TIMER_3_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_3_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_4 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_4 altera_avalon_timer
+#define TIMER_4_ALWAYS_RUN 0
+#define TIMER_4_BASE 0x8000280
+#define TIMER_4_COUNTER_SIZE 32
+#define TIMER_4_FIXED_PERIOD 0
+#define TIMER_4_FREQ 60000000
+//#define TIMER_4_IRQ 20
+#define TIMER_4_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_4_LOAD_VALUE 59999
+#define TIMER_4_MULT 0.0010
+#define TIMER_4_NAME "/dev/timer_4"
+#define TIMER_4_PERIOD 1
+#define TIMER_4_PERIOD_UNITS "ms"
+#define TIMER_4_RESET_OUTPUT 0
+#define TIMER_4_SNAPSHOT 1
+#define TIMER_4_SPAN 32
+#define TIMER_4_TICKS_PER_SEC 1000.0
+#define TIMER_4_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_4_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_5 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_5 altera_avalon_timer
+#define TIMER_5_ALWAYS_RUN 0
+#define TIMER_5_BASE 0x80002a0
+#define TIMER_5_COUNTER_SIZE 32
+#define TIMER_5_FIXED_PERIOD 0
+#define TIMER_5_FREQ 60000000
+//#define TIMER_5_IRQ 21
+#define TIMER_5_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_5_LOAD_VALUE 59999
+#define TIMER_5_MULT 0.0010
+#define TIMER_5_NAME "/dev/timer_5"
+#define TIMER_5_PERIOD 1
+#define TIMER_5_PERIOD_UNITS "ms"
+#define TIMER_5_RESET_OUTPUT 0
+#define TIMER_5_SNAPSHOT 1
+#define TIMER_5_SPAN 32
+#define TIMER_5_TICKS_PER_SEC 1000.0
+#define TIMER_5_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_5_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_6 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_6 altera_avalon_timer
+#define TIMER_6_ALWAYS_RUN 0
+#define TIMER_6_BASE 0x80002c0
+#define TIMER_6_COUNTER_SIZE 32
+#define TIMER_6_FIXED_PERIOD 0
+#define TIMER_6_FREQ 60000000
+//#define TIMER_6_IRQ 22
+#define TIMER_6_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_6_LOAD_VALUE 59999
+#define TIMER_6_MULT 0.0010
+#define TIMER_6_NAME "/dev/timer_6"
+#define TIMER_6_PERIOD 1
+#define TIMER_6_PERIOD_UNITS "ms"
+#define TIMER_6_RESET_OUTPUT 0
+#define TIMER_6_SNAPSHOT 1
+#define TIMER_6_SPAN 32
+#define TIMER_6_TICKS_PER_SEC 1000.0
+#define TIMER_6_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_6_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_7 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_7 altera_avalon_timer
+#define TIMER_7_ALWAYS_RUN 0
+#define TIMER_7_BASE 0x80002e0
+#define TIMER_7_COUNTER_SIZE 32
+#define TIMER_7_FIXED_PERIOD 0
+#define TIMER_7_FREQ 60000000
+//#define TIMER_7_IRQ 23
+#define TIMER_7_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_7_LOAD_VALUE 59999
+#define TIMER_7_MULT 0.0010
+#define TIMER_7_NAME "/dev/timer_7"
+#define TIMER_7_PERIOD 1
+#define TIMER_7_PERIOD_UNITS "ms"
+#define TIMER_7_RESET_OUTPUT 0
+#define TIMER_7_SNAPSHOT 1
+#define TIMER_7_SPAN 32
+#define TIMER_7_TICKS_PER_SEC 1000.0
+#define TIMER_7_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_7_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_8 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_8 altera_avalon_timer
+#define TIMER_8_ALWAYS_RUN 0
+#define TIMER_8_BASE 0x8000300
+#define TIMER_8_COUNTER_SIZE 32
+#define TIMER_8_FIXED_PERIOD 0
+#define TIMER_8_FREQ 60000000
+//#define TIMER_8_IRQ 24
+#define TIMER_8_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_8_LOAD_VALUE 59999
+#define TIMER_8_MULT 0.0010
+#define TIMER_8_NAME "/dev/timer_8"
+#define TIMER_8_PERIOD 1
+#define TIMER_8_PERIOD_UNITS "ms"
+#define TIMER_8_RESET_OUTPUT 0
+#define TIMER_8_SNAPSHOT 1
+#define TIMER_8_SPAN 32
+#define TIMER_8_TICKS_PER_SEC 1000.0
+#define TIMER_8_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_8_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * timer_9 configuration
+ *
+
+#define ALT_MODULE_CLASS_timer_9 altera_avalon_timer
+#define TIMER_9_ALWAYS_RUN 0
+#define TIMER_9_BASE 0x8000320
+#define TIMER_9_COUNTER_SIZE 32
+#define TIMER_9_FIXED_PERIOD 0
+#define TIMER_9_FREQ 60000000
+//#define TIMER_9_IRQ 25
+#define TIMER_9_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_9_LOAD_VALUE 59999
+#define TIMER_9_MULT 0.0010
+#define TIMER_9_NAME "/dev/timer_9"
+#define TIMER_9_PERIOD 1
+#define TIMER_9_PERIOD_UNITS "ms"
+#define TIMER_9_RESET_OUTPUT 0
+#define TIMER_9_SNAPSHOT 1
+#define TIMER_9_SPAN 32
+#define TIMER_9_TICKS_PER_SEC 1000.0
+#define TIMER_9_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_9_TYPE "altera_avalon_timer"
+ */
+
+
+/*
+ * tse_mac configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_tse_mac altera_eth_tse
+#define TSE_MAC_BASE 0x2000800
+#define TSE_MAC_ENABLE_MACLITE 0
+#define TSE_MAC_FIFO_WIDTH 32
+#define TSE_MAC_IRQ -1
+#define TSE_MAC_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define TSE_MAC_IS_MULTICHANNEL_MAC 0
+#define TSE_MAC_MACLITE_GIGE 0
+#define TSE_MAC_MDIO_SHARED 0
+#define TSE_MAC_NAME "/dev/tse_mac"
+#define TSE_MAC_NUMBER_OF_CHANNEL 1
+#define TSE_MAC_NUMBER_OF_MAC_MDIO_SHARED 1
+#define TSE_MAC_PCS 0
+#define TSE_MAC_PCS_ID 0
+#define TSE_MAC_PCS_SGMII 0
+#define TSE_MAC_RECEIVE_FIFO_DEPTH 2048
+#define TSE_MAC_REGISTER_SHARED 0
+#define TSE_MAC_RGMII 1
+#define TSE_MAC_SPAN 1024
+#define TSE_MAC_TRANSMIT_FIFO_DEPTH 2048
+#define TSE_MAC_TYPE "altera_eth_tse"
+#define TSE_MAC_USE_MDIO 1
+
+
+/*
+ * uart_0 configuration
+ *
+
+#define ALT_MODULE_CLASS_uart_0 altera_avalon_uart
+#define UART_0_BASE 0x2000d00
+#define UART_0_BAUD 115200
+#define UART_0_DATA_BITS 8
+#define UART_0_FIXED_BAUD 0
+#define UART_0_FREQ 100000000
+#define UART_0_IRQ 3
+#define UART_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define UART_0_NAME "/dev/uart_0"
+#define UART_0_PARITY 'N'
+#define UART_0_SIM_CHAR_STREAM ""
+#define UART_0_SIM_TRUE_BAUD 0
+#define UART_0_SPAN 32
+#define UART_0_STOP_BITS 1
+#define UART_0_SYNC_REG_DEPTH 2
+#define UART_0_TYPE "altera_avalon_uart"
+#define UART_0_USE_CTS_RTS 0
+#define UART_0_USE_EOP_REGISTER 0
+ */
+
+
+/*
+ * uart_1 configuration
+ *
+
+#define ALT_MODULE_CLASS_uart_1 altera_avalon_uart
+#define UART_1_BASE 0x2000d40
+#define UART_1_BAUD 115200
+#define UART_1_DATA_BITS 8
+#define UART_1_FIXED_BAUD 0
+#define UART_1_FREQ 100000000
+#define UART_1_IRQ 4
+#define UART_1_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define UART_1_NAME "/dev/uart_1"
+#define UART_1_PARITY 'N'
+#define UART_1_SIM_CHAR_STREAM ""
+#define UART_1_SIM_TRUE_BAUD 0
+#define UART_1_SPAN 32
+#define UART_1_STOP_BITS 1
+#define UART_1_SYNC_REG_DEPTH 2
+#define UART_1_TYPE "altera_avalon_uart"
+#define UART_1_USE_CTS_RTS 0
+#define UART_1_USE_EOP_REGISTER 0
+ */
+
+
+/*
+ * usb_dc configuration
+ *
+
+#define ALT_MODULE_CLASS_usb_dc ISP1362_IF
+#define USB_DC_BASE 0x8001050
+#define USB_DC_IRQ 9
+#define USB_DC_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define USB_DC_NAME "/dev/usb_dc"
+#define USB_DC_SPAN 8
+#define USB_DC_TYPE "ISP1362_IF"
+ */
+
+
+/*
+ * usb_hc configuration
+ *
+
+#define ALT_MODULE_CLASS_usb_hc ISP1362_IF
+#define USB_HC_BASE 0x8001040
+#define USB_HC_IRQ 8
+#define USB_HC_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define USB_HC_NAME "/dev/usb_hc"
+#define USB_HC_SPAN 8
+#define USB_HC_TYPE "ISP1362_IF"
+ */
+
+
+/*
+ * vic_0 configuration
+ *
+
+#define ALT_MODULE_CLASS_vic_0 altera_vic
+#define VIC_0_BASE 0xf000000
+#define VIC_0_DAISY_CHAIN_ENABLE 0
+#define VIC_0_INTERRUPT_CONTROLLER_ID 0
+#define VIC_0_IRQ -1
+#define VIC_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define VIC_0_NAME "/dev/vic_0"
+#define VIC_0_NUMBER_OF_INT_PORTS 32
+#define VIC_0_RIL_WIDTH 6
+#define VIC_0_SPAN 1024
+#define VIC_0_TYPE "altera_vic"
+ */
+
+#endif /* __SYSTEM_H_ */

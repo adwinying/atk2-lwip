@@ -1,0 +1,65 @@
+#
+# Altera drivers makefile
+#
+
+# Altera drivers include
+INCLUDES := $(INCLUDES) -I$(APPLDIR)/drivers 
+INCLUDES := $(INCLUDES) -I$(APPLDIR)/drivers/inc
+
+ALT_DIR = $(APPLDIR)/drivers/src
+
+# altera_avalon_jtag_uart_driver sources 
+ALT_COBJS += altera_avalon_cfi_flash.o
+ALT_COBJS += altera_avalon_cfi_flash_amd.o
+ALT_COBJS += altera_avalon_cfi_flash_intel.o
+ALT_COBJS += altera_avalon_cfi_flash_table.o
+
+# altera_avalon_jtag_uart_driver sources 
+ALT_COBJS += altera_avalon_jtag_uart_init.o
+ALT_COBJS += altera_avalon_jtag_uart_read.o
+ALT_COBJS += altera_avalon_jtag_uart_write.o
+ALT_COBJS += altera_avalon_jtag_uart_ioctl.o
+ALT_COBJS += altera_avalon_jtag_uart_fd.o
+
+# altera_avalon_lcd_16207_driver sources 
+ALT_COBJS += altera_avalon_lcd_16207.o
+ALT_COBJS += altera_avalon_lcd_16207_fd.o
+
+# altera_avalon_sgdma_driver sources 
+ALT_COBJS += altera_avalon_sgdma.o
+
+# altera_avalon_sysid_qsys_driver sources 
+ALT_COBJS += altera_avalon_sysid_qsys.o
+
+# altera_avalon_timer_driver sources 
+ALT_COBJS += altera_avalon_timer_sc.o
+ALT_COBJS += altera_avalon_timer_ts.o
+ALT_COBJS += altera_avalon_timer_vars.o
+
+# altera_avalon_uart_driver sources 
+ALT_COBJS += altera_avalon_uart_fd.o
+ALT_COBJS += altera_avalon_uart_init.o
+ALT_COBJS += altera_avalon_uart_ioctl.o
+ALT_COBJS += altera_avalon_uart_read.o
+ALT_COBJS += altera_avalon_uart_write.o
+
+# altera_eth_tse_driver_hal sources 
+ALT_COBJS += altera_avalon_tse_system_info.o
+ALT_COBJS += altera_avalon_tse.o
+
+# altera_vic_driver sources 
+ALT_COBJS += altera_vic.o
+ALT_COBJS += altera_vic_irq_init.o
+ALT_COBJS += altera_vic_isr_register.o
+ALT_COBJS += altera_vic_sw_intr.o
+ALT_COBJS += altera_vic_set_level.o
+KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_0_vector_tbl.o
+KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_funnel_non_preemptive.o
+KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_funnel_non_preemptive_nmi.o
+#KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) altera_vic_funnel_preemptive.o
+
+#Add ALT_DIR to APPL_DIR
+APPL_DIR := $(ALT_DIR):$(APPL_DIR)
+#Add alt obj to list of obj
+APPL_COBJS := $(ALT_COBJS) $(APPL_COBJS)
+
