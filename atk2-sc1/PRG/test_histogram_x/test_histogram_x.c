@@ -179,7 +179,7 @@ TASK(USRV_TASK)
 
     // Start lwIP callback alarm
     lwip250mStimer = 0;
-    SetRelAlarm(LWIP_ALARM, TICK_FOR_10MS/20, TICK_FOR_10MS/20);
+    SetRelAlarm(LWIP_ALARM, TICK_FOR_10MS*25, TICK_FOR_10MS*25);
         
 #if USE_DHCP
     dhcp_start(&tseNetif);
