@@ -30,7 +30,7 @@ set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE115F29C7
 set_global_assignment -name TOP_LEVEL_ENTITY DE2_115_NIOS_DEVICE_LED
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.1 SP1"
-set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:43:06  MARCH 25, 2010"
 
 #============================================================
