@@ -145,6 +145,7 @@ TASK(USRV_TASK)
     tseNetif.hwaddr[4] = 0x0d;
     tseNetif.hwaddr[5] = 0xba;
 
+    alt_irq_init (NULL);
     //  Initialize lwIP, Altera TSE and the ethernetif
     lwip_init();
     if(netif_add(&tseNetif, &ip_zero, &ip_zero, &ip_zero, tseNetif.state, ethernetif_init, ethernet_input) == NULL)

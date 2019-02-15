@@ -49,7 +49,7 @@
  */
 
 #include "system.h"
-//#include "sys/alt_irq.h"
+#include "sys/alt_irq.h"
 #include "sys/alt_sys_init.h"
 
 #include <stddef.h>
@@ -109,11 +109,11 @@ ALTERA_ETH_TSE_INSTANCE ( TSE_MAC, tse_mac);
  * present for backwards-compatibility.
  */
 
-//void alt_irq_init ( const void* base )
-//{
+void alt_irq_init ( const void* base )
+{
 //    ALTERA_VIC_IRQ_INIT ( VIC_0, vic_0);
-//    alt_irq_cpu_enable_interrupts();
-//}
+    alt_irq_cpu_enable_interrupts();
+}
 
 /*
  * Initialize the non-interrupt controller devices.
